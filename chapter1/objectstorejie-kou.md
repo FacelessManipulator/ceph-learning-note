@@ -11,8 +11,9 @@ ObjectStore是对象存储的抽象类，向上提供了一些API，向下声明
 
 #### Object
 
-* 所有ObjectStore中的object都是命名对象，并以名字为唯一区分。数据结构为hobject\_t, ghobject\_t,存储在命名集合**\(coll\_t**\)之中。
-* 
+* 所有ObjectStore中的object都是命名对象，并以名字为全局唯一区分。数据结构为hobject\_t, ghobject\_t,存储在命名集合**\(coll\_t**\)之中。
+* ObjectStore支持对object的创建/修改/删除以及在同一个集合中枚举的操作。其中枚举操作是以**hash\(object\_name\)**排序
+
 * object的metadata，用来记录对象data以外的属性，以KV形式存储，有xattr和omap两种实现
 
 * ObjectStore是基于事务和日志的操作，来实现操作的原子性。具体的实现在ObjectStore的内部类**Transaction**中。

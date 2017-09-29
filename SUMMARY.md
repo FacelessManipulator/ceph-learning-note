@@ -5,7 +5,7 @@
 ## common
 
 * [Context](common/cephcontext.md)
-  * CephContext
+  * [CephContext](common/cephcontext/cephcontext.md)
 
 ## Storage
 
