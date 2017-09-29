@@ -3,9 +3,9 @@
 ObjectStore是对象存储的抽象类，向上提供了一些API，向下声明了一些接口函数等待具体实现。目前ObjectStore的具体实现有
 
 * FileStore: 比较稳定和常用的存储引擎，基于文件系统，具体内容查看章节Storage/FileStore
-* BlueStore: 
-* KStore
-* MemStore
+* BlueStore: 社区自己实现的专门支持RADOS的文件系统
+* KStore: 在本地KV存储基础上实现的存储系统
+* MemStore: 在内存中存储对象的文件系统
 
 ```
 class ObjectStore {
