@@ -9,6 +9,6 @@
 
 ## Storage
 
+* [ObjectStore接口](chapter1/objectstorejie-kou.md)
 * [BlueStore](chapter1.md)
-  * [ObjectStore接口](chapter1/objectstorejie-kou.md)
 
