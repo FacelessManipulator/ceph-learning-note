@@ -7,12 +7,12 @@ ObjectStore是对象存储的抽象类，向上提供了一些API，向下声明
 * KStore: 在本地KV存储基础上实现的存储系统
 * MemStore: 在内存中存储对象的文件系统
 
-#### 基本概念
+### 基本概念
+
+#### Object
 
 * object的metadata，用来记录对象data以外的属性，以KV形式存储，有xattr和omap两种实现
 * ObjectStore是基于事务和日志的操作，来实现操作的原子性。具体的实现在ObjectStore的内部类**Transaction**中。
-
-
 
 ```
 class ObjectStore {
