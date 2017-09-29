@@ -11,10 +11,11 @@ ObjectStore是对象存储的抽象类，向上提供了一些API，向下声明
 
 #### Object
 
-* 所有ObjectStore中的object都是命名对象，并以名字为唯一区分。数据结构为**{hobject\_t, ghobject},**存储在命名集合**\(collt**\)之中。
+* 所有ObjectStore中的object都是命名对象，并以名字为唯一区分。数据结构为**{hobject**_**t, ghobjec**_**t}**,存储在命名集合**\(coll**_**\_**_**t**\)之中。
 * \_\_
 
 * object的metadata，用来记录对象data以外的属性，以KV形式存储，有xattr和omap两种实现
+
 * ObjectStore是基于事务和日志的操作，来实现操作的原子性。具体的实现在ObjectStore的内部类**Transaction**中。
 
 ```
