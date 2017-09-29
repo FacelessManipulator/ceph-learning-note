@@ -20,9 +20,11 @@ ObjectStore是对象存储的抽象类，向上提供了一些API，向下声明
 
 * 受限于操作系统，object的大小是有上限的，一般是100M左右
 
-* xattr只存储少量KV数据，用来保证对最近object xattr的访问是低消耗的
+* xattr只存储少量KV数据\(&lt;64KB\)，用来保证对最近object xattr的访问是低消耗的
 
-* object的metadata，用来记录对象data以外的属性，以KV形式存储，有xattr和omap两种实现
+* omap\_header是一块全读全写的数据块。
+
+* omap\_entries与xattr类似，但是存储在不同的位置，并且允许存储更多的数据量\(MBs\)。它的实现必须支持高效的范围查询
 
 * ObjectStore是基于事务和日志的操作，来实现操作的原子性。具体的实现在ObjectStore的内部类**Transaction**中。
 
