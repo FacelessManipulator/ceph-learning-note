@@ -9,7 +9,7 @@ ObjectStore是对象存储的抽象类，向上提供了一些API，向下声明
 
 #### 基本概念
 
-object的metadata，用来记录对象数据以外的拓展属性，比如
+object的metadata，用来记录对象data以外的属性。
 
 ```
 class ObjectStore {
