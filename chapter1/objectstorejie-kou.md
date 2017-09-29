@@ -7,6 +7,10 @@ ObjectStore是对象存储的抽象类，向上提供了一些API，向下声明
 * KStore: 在本地KV存储基础上实现的存储系统
 * MemStore: 在内存中存储对象的文件系统
 
+#### 基本概念
+
+object的metadata，用来记录
+
 ```
 class ObjectStore {
 protected:
