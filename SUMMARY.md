@@ -13,6 +13,6 @@
 ## Storage
 
 * [ObjectStore](chapter1/objectstorejie-kou.md)
-* BlueStore
+* [BlueStore](chapter1/bluestore.md)
 * FileStore
 
