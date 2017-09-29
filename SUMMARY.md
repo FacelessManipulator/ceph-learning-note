@@ -1,6 +1,9 @@
 # Summary
 
+## Introduction
+
 * [Introduction](README.md)
+* [Architecture](architecture.md)
 
 ## common
 
