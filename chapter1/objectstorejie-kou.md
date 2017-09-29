@@ -26,6 +26,8 @@ ObjectStore是对象存储的抽象类，向上提供了一些API，向下声明
 
 * omap\_entries与xattr类似，但是存储在不同的位置，并且允许存储更多的数据量\(MBs\)。它的实现必须支持高效的范围查询
 
+#### 日志与事务
+
 * ObjectStore是基于事务和日志的操作，来实现操作的原子性。具体的实现在ObjectStore的内部类**Transaction**中。
 
 ```
