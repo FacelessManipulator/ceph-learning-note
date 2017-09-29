@@ -11,4 +11,5 @@
 
 * [ObjectStore接口](chapter1/objectstorejie-kou.md)
 * BlueStore
+* FileStore
 
