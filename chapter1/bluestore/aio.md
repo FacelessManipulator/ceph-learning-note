@@ -34,6 +34,16 @@ struct aio_t {
 * iocb是AIO控制体，用来向系统内核传递IO操作参数
 * fd是文件描述符，在初始化时赋值，一般为待操作的文件
 * iov在pwritev中使用，是基于Scatter IO的思想，将多个buffer中的数据存储到一个文件中。small\_vector是boost对vector的包装，与vector不同的是，smallvector会预申请内存\(第二个模板参数N\)来减少allocate的开销，通常适用于数量较少的vector。
+* offset指文件的偏移量，length指内存的长度
+* rval用来存储文件异步IO返回结果
+* bufferlist bl是异步IO读取操作的buffer列表，异步IO读请求构建以后，buffer地址将会被添加到bl中
+* pwritev构造iocb，请求为把iovector中的多个buffer写入fd中，函数返回后请求既未执行也未提交给内核
+* pread构造iocb，请求为把fd中的数据读入buffer中，并将buffer加入bufferlist等待IO
+* get\_return\_value直接返回rval，函数不保证IO已经完成，所以rval可能仍为-1000（初始值）
+
+queue\_item
+
+
 
 
 
