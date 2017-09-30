@@ -41,9 +41,29 @@ struct aio_t {
 * pread构造iocb，请求为把fd中的数据读入buffer中，并将buffer加入bufferlist等待IO
 * get\_return\_value直接返回rval，函数不保证IO已经完成，所以rval可能仍为-1000（初始值）
 
-queue\_item
+```
+struct aio_queue_t {
+  int max_iodepth;
+  io_context_t ctx;
 
+  typedef list<aio_t>::iterator aio_iter;
 
+  explicit aio_queue_t(unsigned max_iodepth)
+    : max_iodepth(max_iodepth),
+      ctx(0) {
+  }
+  ~aio_queue_t() {
+    assert(ctx == 0);
+  }
+
+  int init();
+  void shutdown();
+
+  int submit_batch(aio_iter begin, aio_iter end, uint16_t aios_size, 
+		   void *priv, int *retries);
+  int get_next_completed(int timeout_ms, aio_t **paio, int max);
+};
+```
 
 
 
