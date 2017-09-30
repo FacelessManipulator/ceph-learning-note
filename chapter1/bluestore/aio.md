@@ -8,7 +8,7 @@ AIO指Asyncronic IO，异步IO，即提交IO请求后立即返回，IO请求完�
 
 BlueStore使用了libaio作为异步IO机制，在aio.h中主要定义了俩个数据结构，aio\_t以及aioqueue\_t
 
-aio\_t是对iocb\(io controll block，用来把IO操作的基本信息传输给libaio.h\)
+aio\_t是对iocb\(io controll block，用来把IO操作的基本信息传输给syscall\)
 
 ```
 # include <libaio.h>
