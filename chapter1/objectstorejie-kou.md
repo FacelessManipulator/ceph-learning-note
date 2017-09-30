@@ -33,6 +33,14 @@ ObjectStore是对象存储的抽象类，向上提供了一些API，向下声明
 #### 日志与事务
 
 * ObjectStore是基于事务\(Transaction\)和日志的操作，来实现操作的原子性。具体的实现在ObjectStore的内部类**Transaction**中。
+* 一个事务通常包含一组基本操作
+* 每个事务都支持若干个回调函数，回调函数有三种类型: on\_applied\_sync, on\_applied, on\_commit.
+* **on applied sync 与 on applied**在请求结果返回时被调用，on applied sync由ObjectStore主线程调用，因此要求低消耗，无锁。on applied则由专门的finisher线程执行
+* **on commit **也由finnisher线程执行，不同的是它是在数据落盘以后被回调 
+
+### 代码分析
+
+#### 成员变量
 
 ```
 class ObjectStore {
@@ -44,7 +52,6 @@ public:
     struct Sequencer_impl : public RefCountedObject;
     struct Sequencer;
     struct CollectionImpl : public RefCountedObject;
-    class Transaction;
     ...
 }
 ```
