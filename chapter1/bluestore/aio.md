@@ -60,10 +60,15 @@ struct aio_queue_t {
   void shutdown();
 
   int submit_batch(aio_iter begin, aio_iter end, uint16_t aios_size, 
-		   void *priv, int *retries);
+           void *priv, int *retries);
   int get_next_completed(int timeout_ms, aio_t **paio, int max);
 };
 ```
 
+* max\_iodepth是调用setup时需要的参数，含义是在可以同时在context中驻留的请求的最大数量
+* ctx存储调用io\_setup时产生的IO Context\(异步调用实体\)，用来区分每次IO结果，其实质是一个unsigned long
+* init函数执行io\_setup函数初始化ctx, shutdown销毁ctx
+* submit\_batch是真正将构造好的请求提交给内核执行的函数，该函数前半部分将iocb从aio列表中提取出来，后半部分内核系统调用io submit不断提交iocb请求。如果失败将在一段delay后再次尝试submit，最多尝试16次，delay每次加倍，最大时延16s
+* 
 
 
