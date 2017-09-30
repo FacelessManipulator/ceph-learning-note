@@ -27,22 +27,9 @@ struct aio_t {
   aio_t(void *p, int f) : priv(p), fd(f), offset(0), length(0), rval(-1000) {
   }
 
-  void pwritev(uint64_t _offset, uint64_t len) {
-    offset = _offset;
-    length = len;
-    io_prep_pwritev(&iocb, fd, &iov[0], iov.size(), offset);
-  }
-  void pread(uint64_t _offset, uint64_t len) {
-    offset = _offset;
-    length = len;
-    bufferptr p = buffer::create_page_aligned(length);
-    io_prep_pread(&iocb, fd, p.c_str(), length, offset);
-    bl.append(std::move(p));
-  }
-
-  int get_return_value() {
-    return rval;
-  }
+  void pwritev(uint64_t _offset, uint64_t len);
+  void pread(uint64_t _offset, uint64_t len);
+  int get_return_value();
 };
 ```
 
