@@ -57,5 +57,5 @@ public:
 
 **CephContext\* cct **为Ceph集群实体的指针，该对象包含了map/config/log/socket等集群操作相关的通用实体，具体内容查看章节common/CephContext。
 
-**struct Sequencer\_impl : public RefCountedObject **序列器的简单实现，基于
+
 
