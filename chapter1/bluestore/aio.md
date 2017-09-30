@@ -24,14 +24,15 @@ struct aio_t {
 
   boost::intrusive::list_member_hook<> queue_item;
 
-  aio_t(void *p, int f) : priv(p), fd(f), offset(0), length(0), rval(-1000) {
-  }
-
+  aio_t(void *p, int f) : priv(p), fd(f), offset(0), length(0), rval(-1000);
   void pwritev(uint64_t _offset, uint64_t len);
   void pread(uint64_t _offset, uint64_t len);
   int get_return_value();
 };
 ```
+
+* iocb是AIO控制体，用来向系统内核传递IO操作参数
+* fd是文件描述符，在初始化时赋值
 
 
 
