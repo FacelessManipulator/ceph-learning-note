@@ -49,9 +49,6 @@ protected:
 
 public:
     CephContext* cct;
-    struct Sequencer_impl : public RefCountedObject;
-    struct Sequencer;
-    struct CollectionImpl : public RefCountedObject;
     ...
 }
 ```
