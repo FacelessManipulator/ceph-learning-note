@@ -6,9 +6,9 @@ AIO指Asyncronic IO，异步IO，即提交IO请求后立即返回，IO请求完�
 * 用户空间实现上层，但在底层使用系统调用\(libaio.h\)
 * 在用户空间完全模拟异步IO
 
-
-
 ```
+# include <libaio.h>
+
 struct aio_t {
   struct iocb iocb;  // must be first element; see shenanigans in aio_queue_t
   void *priv;
