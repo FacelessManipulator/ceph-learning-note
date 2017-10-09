@@ -9,7 +9,14 @@ ObjectStore暴露给上层的写数据接口为queue\_transactions，因为所�
 * Squencer \*posr: 指定的顺序队列，不同队列中的日志可以并行处理，队列由ObjectStore的使用者创建与维护
 * vector&lt;Transaction&gt;& tls: 传入的日志集合
 
+* TrackedOpRef op:
+
+* ThreadPool::TPHandle \*handle: 
+
+queue\_transactions会执行如下操作：
+
 * 首先会通过collect\_contexts收集日志集合中所有的回调事件实体\(onreadable, ondisk, onreadablesync\)，并将他们按类别归类到三个回调事件列表中
+
 * 
 
 
