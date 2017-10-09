@@ -23,9 +23,14 @@ private:
   uint64_t _aligned_len(
     btree_interval_set<uint64_t,allocator>::iterator p,
     uint64_t alloc_unit);
-    
+
   ...
 ```
 
+* cct是ceph集群的实例，在Allocator类中主要使用了其中的config实体
+* lock是当前类的读写全局锁，allocate/release等操作都会在操作期间占用锁
+* num free 记录了freelist中所有uinit size的和
+* num reserved 记录了保留存储的大小
+* 
 
 
