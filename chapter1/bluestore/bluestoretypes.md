@@ -16,5 +16,7 @@ struct bluestore_bdev_label_t {
 };
 ```
 
+* struct bluestore bdev label t
+
 
 
