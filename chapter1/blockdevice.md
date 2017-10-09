@@ -47,3 +47,7 @@ public:
 
 IO实体是对aio.h中的异步IO的进一步包装
 
+* lock用来协调　try aio wake　和　aio wait　之间的同步
+
+
+
