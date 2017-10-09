@@ -19,6 +19,7 @@ queue\_transactions会执行如下操作：
 
 * 设置顺序队列：检查传入posr是否指向存在的实例，如果不存在，则创建新的队列实例并将posr实体的ref指向新创建的队列\(OpSequenecer\)
 
-* 
+* 准备：调用\_txc\_create创建新的TransContext txc
+
 
 
