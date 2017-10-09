@@ -33,6 +33,7 @@ private:
 * num reserved 记录了保留存储的大小
 * last\_alloc记录了上次申请内存的尾地址，用来方便下次申请时的寻址
 
-* 
+* choose bin函数
+
 
 
