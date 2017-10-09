@@ -14,6 +14,7 @@
 
 ## Storage
 
+* [workflow简要分析](chapter1/workflowjian-yao-fen-xi.md)
 * [ObjectStore](chapter1/objectstorejie-kou.md)
 * [BlueStore](chapter1/bluestore.md)
   * [aio](chapter1/bluestore/aio.md)

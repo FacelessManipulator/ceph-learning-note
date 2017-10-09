@@ -35,7 +35,7 @@ public:
 ```
 
 * static Allocator \*create ，工厂模式中创建不同类型子类实例的接口，cct接受ceph实例，type接受将要实例化的allocator的类型，size与block size是初始化BitMapAllocator实例所需要的参数，前者表示设备总存储大小，后者表示设备中块的大小。
-* allocate
+* allocate是申请内存的接口，
 
 
 

@@ -18,6 +18,7 @@ struct bluestore_bdev_label_t {
 
 * struct bluestore\_bdev\_label\_t 使用来存储块设备的基本信息
 * uuid : osd的uuid信息，size: 设备大小，btime: osd创建时间，description: 设备描述
+* encode
 
 
 
