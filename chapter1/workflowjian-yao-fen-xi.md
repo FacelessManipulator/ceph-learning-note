@@ -4,7 +4,10 @@
 
 从调用objectstore create生成storage实例以后，所有IO操作基本通过Transaction来触发。
 
-ObjectStore暴露给上层的写数据接口为queue\_transactions，因为所有写操作都要通过Transaction处理。在queue\_transactions中，进程
+ObjectStore暴露给上层的写数据接口为queue\_transactions，因为所有写操作都要通过Transaction处理。在queue\_transactions中，进程接受四个参数
+
+* Squencer \*posr: 指定的顺序队列，不同队列中的日志可以并行处理，队列由ObjectStore的使用者创建与维护
+* vector&lt;Transaction&gt;& tls: 传入的日志集合
 
 * 首先会通过collect\_contexts收集日志集合中所有的回调事件实体\(onreadable, ondisk, onreadablesync\)，并将他们按类别归类到三个回调事件列表中
 * 
