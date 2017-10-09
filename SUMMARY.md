@@ -20,6 +20,5 @@
   * [Allocator](chapter1/bluestore/allocator.md)
     * [StupidAllocator](chapter1/bluestore/allocator/stupidallocator.md)
   * [BlockDevice](chapter1/bluestore/blockdevice.md)
-* [BlockDevice](chapter1/blockdevice.md)
 * FileStore
 
