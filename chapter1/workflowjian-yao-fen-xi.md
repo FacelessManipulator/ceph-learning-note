@@ -4,5 +4,5 @@
 
 从调用objectstore create生成storage实例以后，所有IO操作基本通过Transaction来触发。
 
-ObjectStore暴露给上层的写数据接口为queue\_transactions，因为所有写操作都要通过Transaction处理
+ObjectStore暴露给上层的写数据接口为queue\_transactions，因为所有写操作都要通过Transaction处理。
 
