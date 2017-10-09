@@ -16,7 +16,7 @@ struct bluestore_bdev_label_t {
 };
 ```
 
-* struct\_bluestore\_bdev\_label\_t
+* struct bluestore\_bdev\_label\_t 
 
 
 
