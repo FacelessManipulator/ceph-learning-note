@@ -31,6 +31,8 @@ private:
 * lock是当前类的读写全局锁，allocate/release等操作都会在操作期间占用锁
 * num free 记录了freelist中所有uinit size的和
 * num reserved 记录了保留存储的大小
+* last\_alloc记录了上次申请内存的尾地址
+
 * 
 
 
