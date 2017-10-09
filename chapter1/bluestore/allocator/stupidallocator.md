@@ -23,9 +23,8 @@ private:
   uint64_t _aligned_len(
     btree_interval_set<uint64_t,allocator>::iterator p,
     uint64_t alloc_unit);
+    
   ...
-  
-};
 ```
 
 
