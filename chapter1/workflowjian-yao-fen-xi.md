@@ -17,7 +17,7 @@ queue\_transactions会执行如下操作：
 
 * 首先会通过collect\_contexts收集日志集合中所有的回调事件实体\(onreadable, ondisk, onreadablesync\)，并将他们按类别归类到三个回调事件列表中
 
-* 检查传入posr是否指向存在的实例，如果不存在，则创建新的队列实例并将posr实体的ref指向新创建的队列
+* 检查传入posr是否指向存在的实例，如果不存在，则创建新的队列实例并将posr实体的ref指向新创建的队列\(OpSequenecer\)
 
 
 
