@@ -18,5 +18,6 @@
 * [BlueStore](chapter1/bluestore.md)
   * [aio](chapter1/bluestore/aio.md)
   * [Allocator](chapter1/bluestore/allocator.md)
+    * [StupidAllocator](chapter1/bluestore/allocator/stupidallocator.md)
 * FileStore
 
