@@ -17,5 +17,6 @@
 * [ObjectStore](chapter1/objectstorejie-kou.md)
 * [BlueStore](chapter1/bluestore.md)
   * [aio](chapter1/bluestore/aio.md)
+  * [Allocator](chapter1/bluestore/allocator.md)
 * FileStore
 
