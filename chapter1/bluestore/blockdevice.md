@@ -49,6 +49,7 @@ IO实体是对aio.h中的异步IO的进一步包装
 
 * lock与cond用来协调　try\_aio\_wake　和　aio\_wait之间的同步，aio\_wait中cond.wait阻塞进程，try\_aio\_wake中cond.notify\_all通过运行中任务的计数来唤醒cond阻塞
 * cct为ceph集群信息，在struct IOContext中没有显式的用到
-* 
+* priv
+
 
 
