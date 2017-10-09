@@ -12,11 +12,11 @@ public:
   virtual int reserve(uint64_t need) = 0;
   virtual void unreserve(uint64_t unused) = 0;
   virtual int64_t allocate(uint64_t want_size, uint64_t alloc_unit,
-			   uint64_t max_alloc_size, int64_t hint,
-			   AllocExtentVector *extents) = 0;
+               uint64_t max_alloc_size, int64_t hint,
+               AllocExtentVector *extents) = 0;
 
   int64_t allocate(uint64_t want_size, uint64_t alloc_unit,
-		   int64_t hint, AllocExtentVector *extents) {
+           int64_t hint, AllocExtentVector *extents) {
     return allocate(want_size, alloc_unit, want_size, hint, extents);
   }
 
@@ -33,6 +33,8 @@ public:
   static Allocator *create(CephContext* cct, string type, int64_t size, int64_t block_size);
 };
 ```
+
+* static Allocator \*create ，工厂模式中创建不同类型子类实例的接口，cct接受ceph实例，type接受将要实例化的allocator的类型，size与block size是初始化BitMapAllocator实例所需要的参数，前者表示设备存储大小，后者表示设备中块的大小。
 
 
 
