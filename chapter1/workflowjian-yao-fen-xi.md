@@ -1,8 +1,4 @@
 ## Storage workflow简要分析
 
-想要理解各部分代码的功能目的，首先需要对整个存储架构的workflow有一个大致的了解
-
-
-
-
+想要理解各部分代码的功能目的，首先需要对整个存储架构的workflow有一个大致的了解，这里以bluestore为objectstore的实例，简要描述了workflow的过程
 
