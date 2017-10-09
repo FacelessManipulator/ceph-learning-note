@@ -21,7 +21,9 @@ queue\_transactions会执行如下操作：
 
 * 准备：调用\_txc\_create创建新的TransContext，然后进行初始化操作
 
-  * 获取rockdb的日志实体，传入三类回调事件实体列表
+  * 获得rockdb的日志实体
+  * 将tls中的事件通过\_txc\_add\_transaction函数分别添加至txc中，添加过程中不同的操作码将进行不同的处理。
+  * 
 
 
 
