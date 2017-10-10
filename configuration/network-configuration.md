@@ -1,6 +1,6 @@
 ### Ceph cluster Network configuration reference
 
-
+由于client/mon/osd三者之间都是直接通信，因此网络配置对Ceph集群至关重要。
 
 Ref:
 
