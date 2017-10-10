@@ -5,12 +5,17 @@
 * [Introduction](README.md)
 * [Architecture](architecture.md)
 
+## Configuration
+
+* [Network configuration](configuration/network-configuration.md)
+* [Auth configuration](configuration/auth-configuration.md)
+
 ## common
 
-* [Context](common/cephcontext.md)
-  * [CephContext](common/cephcontext/cephcontext.md)
 * [Buffer](common/buffer.md)
   * [ptr](common/buffer/ptr.md)
+* [Context](common/cephcontext.md)
+  * [CephContext](common/cephcontext/cephcontext.md)
 
 ## Experience
 
@@ -27,8 +32,4 @@
   * [BlockDevice](chapter1/bluestore/blockdevice.md)
   * [bluestore\_types](chapter1/bluestore/bluestoretypes.md)
 * FileStore
-
-## Configuration
-
-* [Network configuration](configuration/network-configuration.md)
 
