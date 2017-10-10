@@ -29,7 +29,7 @@ iptables -A INPUT -i {iface} -m multiport -p tcp -s {ip-address}/{netmask} --dpo
         cluster network = {cluster-network/netmask}
 ```
 
-Ceph配置中通常需要显式地指定各个服务的ip以及mon服务的port，对于osd可以不指定ip地址，Ceph 的Configuration模块会自动指定ip地址
+Ceph配置中通常需要显式地指定各个服务的ip以及mon服务的port，对于osd可以不指定ip地址，Ceph 的Configuration模块会自动指定ip地址，port则是由各服务在指定区间\(默认6800:7300\)自动寻找未占用端口并监听:
 
 ```
 [mon.a]
