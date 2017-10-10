@@ -20,7 +20,7 @@ iptables -A INPUT -i {iface} -m multiport -p tcp -s {ip-address}/{netmask} --dpo
 
 ### Config File
 
-网络配置写在Ceph config file的**\[global\]**部分
+网络配置写在Ceph config file的**\[global\]**部分，一旦配置了cluster network，osd就会把互相之间的心跳检测/数据备份/恢复的流量放在cluster network上
 
 ```
 [global]
@@ -28,6 +28,8 @@ iptables -A INPUT -i {iface} -m multiport -p tcp -s {ip-address}/{netmask} --dpo
         public network = {public-network/netmask}
         cluster network = {cluster-network/netmask}
 ```
+
+Ceph配置中通常需要显式地指定各个服务的ip以及mon服务的port
 
 Ref:
 
