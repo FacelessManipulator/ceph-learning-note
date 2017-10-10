@@ -57,7 +57,7 @@ bind用来指定绑定端口的范围，默认端口足够/不需要使用ipv6�
 
 * ms tcp nodelay 默认是true,表示立即发包，当网络中存在大量小包时可能会造成时延，那时可以将此项设为false并指定rcvbuf来提升效率
 * ms tcp read timeout  默认900s后自动断线
-* ms tcp rcvbuf  这是socketbuffer的大小，默认是0
+* ms tcp rcvbuf  这是socketbuffer的大小，默认是0，配合ms tcp nodelay使用
 
 Ref:
 
