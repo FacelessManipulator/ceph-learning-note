@@ -1,4 +1,4 @@
-### Ceph cluster Network configuration reference
+## Ceph cluster Network configuration reference
 
 由于client/mon/osd三者之间都是直接通信，因此网络配置对Ceph集群至关重要。
 
@@ -8,6 +8,12 @@
 * Cluster Network: OSD之间的直连网络，数据的scrub, replicate, recovery等都通过此内部网络
 
 这种配置保证了集群的效率以及安全性，具备防范一定Dos攻击的能力\(当public network阻塞时，通信于内部网络的状态更新和数据一致性保持等功能仍能正常运行\)
+
+### selinux/iptables
+
+绑定端口之前一定得先配置安全组策略，mon服务默认监听6789端口，osd服务端口一般为6800:7300
+
+
 
 Ref:
 
