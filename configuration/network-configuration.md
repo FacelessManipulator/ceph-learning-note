@@ -29,7 +29,25 @@ iptables -A INPUT -i {iface} -m multiport -p tcp -s {ip-address}/{netmask} --dpo
         cluster network = {cluster-network/netmask}
 ```
 
-Ceph配置中通常需要显式地指定各个服务的ip以及mon服务的port
+Ceph配置中通常需要显式地指定各个服务的ip以及mon服务的port，对于osd可以不指定ip地址，Ceph 的Configuration模块会自动指定ip地址
+
+```
+[mon.a]
+        host = {hostname}
+        mon addr = {ip-address}:6789
+
+[osd.0]
+        host = {hostname}        
+        ＃ 可以不指定
+        public addr = {host-public-ip-address}
+        cluster addr = {host-cluster-ip-address}
+```
+
+* public network: 在\[global\]中指定，用来显示指定public network的地址/掩码，如果不设置则将由ceph自动选择
+* public addr: 在\[$type.$id\]中指定，用来局部重载public network配置
+* cluster network 与 cluster addr 用法类似
+
+
 
 Ref:
 
