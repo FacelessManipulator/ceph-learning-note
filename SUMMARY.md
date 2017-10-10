@@ -28,3 +28,7 @@
   * [bluestore\_types](chapter1/bluestore/bluestoretypes.md)
 * FileStore
 
+## Configuration
+
+* [Network configuration](configuration/network-configuration.md)
+
