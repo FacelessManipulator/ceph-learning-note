@@ -15,7 +15,7 @@ daemon的keyring默认路径为$data/keyring，比如osd.0的默认路径为/var
 
 ### Signature
 
-为了保持向下兼容，让不同版本的daemon能够运行在同一集群中，cephx默认只有在双方版本支持的情况下才要求签名。根据这一特性，第三方也许可以冒充低版本client发送欺骗包\(未验证\)
+为了保持向下兼容，让不同版本的daemon能够运行在同一集群中，cephx默认只有在双方版本支持的情况下才要求签名。根据这一特性，第三方也许可以冒充低版本client发送欺骗包\(未验证\)，因此在确认集群中没有低于Argonaut v0.48版本的daemon时，最好能启用require signatures
 
 ```
 # 所有包需要签名
