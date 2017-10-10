@@ -23,6 +23,10 @@ queue\_transactions会执行如下操作：
 
   * 获得rockdb的日志实体
   * 将tls中的事件通过\_txc\_add\_transaction函数分别添加至txc中，添加过程中不同的操作码将进行不同的处理。
+  * \_txc\_calc\_cost　计算txc IO的开销，采用了简单的IO cost与数据量正相关的算法
+
+  * \_txc\_write\_nodes　将onode写入rocketdb的transaction中
+
   * 
 
 
