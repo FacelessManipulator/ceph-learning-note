@@ -14,9 +14,19 @@
 绑定端口之前一定得先配置安全组策略，mon服务默认监听6789端口，osd服务端口一般为6800:7300，mds服务通常也在6800:7300之间，因此首先运行
 
 ```
-
 iptables -A INPUT -i {iface} -p tcp -s {ip-address}/{netmask} --dport 6789 -j ACCEPT
 iptables -A INPUT -i {iface} -m multiport -p tcp -s {ip-address}/{netmask} --dport 6800:7300 -j ACCEPT
+```
+
+### Config File
+
+网络配置写在Ceph config file的**\[global\]**部分
+
+```
+[global]
+        # ... elided configuration
+        public network = {public-network/netmask}
+        cluster network = {cluster-network/netmask}
 ```
 
 Ref:
