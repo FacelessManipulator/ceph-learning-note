@@ -12,3 +12,13 @@ mon提供的服务有:
 
 ![](http://docs.ceph.com/docs/master/_images/ditaa-ae8fc6ae5b4014f064a0bed424507a7a247cd113.png)
 
+#### Quorum
+
+#### Cluster Map
+
+#### Consistency
+
+* mon通过monitor map\(monmap\)来发现其他monitor node，目的是为了时时通过paxos动态更新monmap，而其他daemon则通过config file来寻找Mon节点
+* 
+
+
