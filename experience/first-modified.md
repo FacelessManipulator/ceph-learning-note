@@ -19,7 +19,7 @@ ceph daemon osd.0 config show | grep debug_osd
 
 # 执行相应操作脚本
 ./do_op.py
-#查看日志
+#　查看日志
 cat out/osd.0.log | grep <some unique features> | less
 ```
 
