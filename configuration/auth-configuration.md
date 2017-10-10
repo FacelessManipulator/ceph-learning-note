@@ -28,5 +28,5 @@ cephx service require signatures = false
 cephx sign messages = true
 ```
 
-
+Ref: [http://docs.ceph.com/docs/master/rados/configuration/auth-config-ref/](http://docs.ceph.com/docs/master/rados/configuration/auth-config-ref/)
 
