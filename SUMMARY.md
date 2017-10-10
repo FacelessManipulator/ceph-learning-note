@@ -4,6 +4,7 @@
 
 * [Introduction](README.md)
 * [Architecture](architecture.md)
+  * [MON](architecture/mon.md)
 
 ## Configuration
 
