@@ -20,6 +20,8 @@ iptables -A INPUT -i {iface} -m multiport -p tcp -s {ip-address}/{netmask} --dpo
 
 ### Config File
 
+#### network
+
 网络配置写在Ceph config file的**\[global\]**部分，一旦配置了cluster network，osd就会把互相之间的心跳检测/数据备份/恢复的流量放在cluster network上
 
 ```
@@ -47,7 +49,15 @@ Ceph配置中通常需要显式地指定各个服务的ip以及mon服务的port�
 * public addr: 在\[$type.$id\]中指定，用来局部重载public network配置
 * cluster network 与 cluster addr 用法类似
 
+#### Bind
 
+bind用来指定绑定端口的范围，默认端口足够/不需要使用ipv6的情况通常不需要修改，配置详情见[http://docs.ceph.com/docs/master/rados/configuration/network-config-ref/\#bind](http://docs.ceph.com/docs/master/rados/configuration/network-config-ref/#bind)
+
+#### tcp
+
+* ms tcp nodelay 默认是true,表示立即发包，当网络中存在大量小包时可能会造成时延，那时可以将此项设为false并指定rcvbuf来提升效率
+* ms tcp read timeout  默认900s后自动断线
+* ms tcp rcvbuf  这是socketbuffer的大小，默认是0
 
 Ref:
 
