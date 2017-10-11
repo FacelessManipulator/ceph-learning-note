@@ -20,7 +20,7 @@ osd class dir = $libdir/rados-classes
 
 * osd client message size cap: 限制了客户端消息的最大长度，在object长度等都不修改的情况下是足够的
 
-* osd class dir: 存放RADOS类插件的位置，可以通过修改这个来部署不同版本的链接库
+* osd class dir: 存放RADOS类插件的位置，可以通过修改这个来部署不同版本\(自己的\)的链接库
 
 
 
