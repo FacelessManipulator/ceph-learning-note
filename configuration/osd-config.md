@@ -73,5 +73,9 @@ osd scrub interval randomize ratio = 0.5 # 用来某个PG计算下次scrub的时
 osd deep scrub stride = 524288 # deep scrub时读的字节数
 ```
 
+#### Oprations
+
+
+
 
 
