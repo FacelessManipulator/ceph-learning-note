@@ -75,7 +75,14 @@ osd deep scrub stride = 524288 # deep scrub时读的字节数
 
 #### Oprations
 
+默认情况下, osd使用两个线程来处理ops，ops在queue中排队等待处理，每个op都带有priority属性，不同类型的有限队列会有不同的优先级处理方式:
 
+* 原始的Original PrioritizedQueue\(prio\) 使用令牌桶系统，当高优先级队列中有足够的token时，会先从高优先级队列出队op，如果高优先级队列token不足，就将低优先级队列中的op排入高优先级队列中。算法见[https://baike.baidu.com/item/%E4%BB%A4%E7%89%8C%E6%A1%B6%E7%AE%97%E6%B3%95](https://baike.baidu.com/item/%E4%BB%A4%E7%89%8C%E6%A1%B6%E7%AE%97%E6%B3%95)
+
+```
+osd op threads = 2 # osd op处理线程数
+osd op queue = prio # osd op 所使用的queue的类型
+```
 
 
 
