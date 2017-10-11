@@ -37,11 +37,13 @@ osd mount options xfs = rw, noation, inode64, logbufs=8
 
 如果不经过优化，在使用FileStore作为对象存储时，journal就存储在默认地址下，也就是和osd data存储在同一文件系统的同一设备下，最好能通过把journal挂载到ssd来提升性能。如果是bluestore作为文件存储，由于bluestore采用了WAL机制，日志写在block.wal上，并不会在journal path中创建Journal文件。
 
-Ceph的默认journal size为0,需要自己计算并指定，可以通过下列公式算得:
+Ceph的默认journal size为0,需要自己计算并指定，较大的journal size可以保证在journal刷入data的间隔时间内，日志不会溢出导致丢失。journal size可以通过下列公式算得:
 
 ```
 osd journal size = {2 * (expected throughput * filestore max sync interval)}
 ```
 
 比如用了7200转HDD硬盘，最大IO速度是100MB/s，用的千兆网络，则 expected throughput选择流量瓶颈处就是硬盘IO速度100MB/s，然后乘 filesotre的最大同步时间间隔，默认是5s，最后乘2，结果是500MB即524288000
+
+
 
