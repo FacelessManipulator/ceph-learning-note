@@ -29,7 +29,16 @@ mon的data需要通过leveldb存储数据到本地文件系统中，由于mon需
 
 ```
 mon data = /var/lib/ceph/mon/$cluster-$id
+```
 
+### 存储容量
+
+```
+[global]
+
+        mon osd full ratio = .80
+        mon osd backfillfull ratio = .75
+        mon osd nearfull ratio = .70
 ```
 
 
