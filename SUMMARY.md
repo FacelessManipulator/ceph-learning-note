@@ -11,6 +11,7 @@
 * [Auth configuration](configuration/auth-configuration.md)
 * [Monitor config](configuration/monitor-config.md)
 * [Monitor/OSD Interaction](configuration/monitorosd-interaction.md)
+* [osd config](configuration/osd-config.md)
 
 ## common
 
