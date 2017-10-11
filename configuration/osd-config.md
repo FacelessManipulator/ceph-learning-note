@@ -45,5 +45,14 @@ osd journal size = {2 * (expected throughput * filestore max sync interval)}
 
 比如用了7200转HDD硬盘，最大IO速度是100MB/s，用的千兆网络，则 expected throughput选择流量瓶颈处就是硬盘IO速度100MB/s，然后乘 filesotre的最大同步时间间隔，默认是5s，最后乘2，结果是500MB即524288000
 
+```
+osd journal = /var/lib/ceph/osd/$cluster-$id/journal
+osd journal size = 523288000 # (default 0)
+```
+
+#### Scrubbing
+
+
+
 
 
