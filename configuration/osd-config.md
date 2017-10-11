@@ -22,5 +22,15 @@ osd class dir = $libdir/rados-classes
 
 * osd class dir: 存放RADOS类插件的位置，可以通过修改这个来部署不同版本\(自己的\)的链接库
 
+#### Filesystem
+
+在build或Mount 文件系统时如果有其他的需求选项，可以通过下列设置添加
+
+```
+# osd mkfs options {fs-type} = 创建<fs-type>时的附加选项
+osd mkfs options xfs= -f -d agcount=24
+# osd mount options {fs-type} = 挂载<fs-type>时的附加选项
+```
+
 
 
