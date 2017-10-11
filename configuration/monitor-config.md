@@ -76,7 +76,15 @@ mon data = /var/lib/ceph/mon/$cluster-$id
 
 如果同步过程中Provider收到map 的update请求，则会中断传输。
 
+#### 其他配置
 
+另外的都是超时时间等设置，一般默认值就行
+
+```
+# 集群中最大osd的数量
+mon max osd = 10000
+
+```
 
 
 
