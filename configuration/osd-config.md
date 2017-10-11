@@ -33,5 +33,9 @@ osd mkfs options xfs= -f -d agcount=24
 osd mount options xfs = rw, noation, inode64, logbufs=8
 ```
 
+#### Journal
+
+如果不经过优化，journal就存储在默认地址下，也就是和osd data存储在同一文件系统的同一设备下，最好能通过把journal挂载到ssd来提升性能。
+
 
 
