@@ -54,5 +54,24 @@ osd journal size = 523288000 # (default 0)
 
 为了保证对象的多份copies之间的完整性一致性，Ceph会以PG为单位scrubbing数据。对于每个PG，Ceph首先生成一份目录，根据目录来比较目录中每个object是否完整或者丢失。Light scrubbing\(日常的轻量级洗刷\)只会检查每个Object的size和attributes。Deep scrubbing\(每周的深度洗刷）会计算每个object的检验和来保证数据完整性。
 
+```
+osd max scrubs = 1 # 同时进行的洗刷操作数量
+osd scrub begin hour = 0
+osd scrub end hour = 24 #这两个选项定义了scrub可以进行的窗口时间，但并不是绝对的
+# 如果scrub的实际间隔超过了下面定义的max interval，那无论是否在窗口时间，ceph都会开始scrub
+osd scrub during revovery = true # 执行recovery时是否运行开始scrub,正在进行的scrub不受影响，可以用来减负
+osd scrub thread timeout = 60 # 超时清除scrub线程的最大时间
+osd scrub finalize thread timeout # 超时清除终结线程的最大时间
+osd scrub load threshold = 0.5 # scrub最大负载，超过阈值时不会进行scrub，load通过getloadavg()算得
+osd scrub min interval = 86400 # (1 hour)
+osd scrub max interval = 604800 # (1 day)
+osd scrub chunk min = 5 # 每次scrub操作时最小数量的object store chunk
+osd scrub chunk max = 25 # 最大数量的object store chunk
+osd scrub sleep = 0 # 每scrub完一个chunk后sleep的时间，可以用来减少负载
+osd scrub interval randomize ratio = 0.5 # 用来某个PG计算下次scrub的时间，算法为
+# osd_scrub_min_interval * random(1, 1+osd_scrub_interval_randomize_ratio)
+osd deep scrub stride = 524288 # deep scrub时读的字节数
+```
+
 
 
