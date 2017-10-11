@@ -10,6 +10,8 @@ mon提供的服务有:
 
 当cluster map的改变\(挂了一个osd\)被当前mon检测到时，mon就会把changes写入同一个Paxos实例中，然后由Paxos将Changes写入kv store来保证强一致性。
 
+![](/assets/import.png)
+
 #### Quorum
 
 #### Cluster Map
@@ -74,7 +76,7 @@ mon data = /var/lib/ceph/mon/$cluster-$id
 * Provider: 拥有最新版cluster map的mon节点
 * Requester: 刚加入的mon\(刚从fail中重启等原因\)
 
-如果同步过程中Provider收到map 的update请求，则会中断传输。
+如果同步过程中Provider收到map 的update请求，则会中断传输。![](/assets/import2.png)
 
 #### 其他配置
 
@@ -83,7 +85,6 @@ mon data = /var/lib/ceph/mon/$cluster-$id
 ```
 # 集群中最大osd的数量
 mon max osd = 10000
-
 ```
 
 
