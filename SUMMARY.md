@@ -10,6 +10,7 @@
 * [Network configuration](configuration/network-configuration.md)
 * [Auth configuration](configuration/auth-configuration.md)
 * [Monitor config](configuration/monitor-config.md)
+* [Monitor/OSD Interaction](configuration/monitorosd-interaction.md)
 
 ## common
 
