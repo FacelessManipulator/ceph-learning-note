@@ -26,5 +26,5 @@ osd hearbeat grace = 20
 osd mon heartbeat interval = 30
 ```
 
-
+OSD需要不定时向MON进行汇报，否则在一段时间以后MON会将OSD标记为down。一般当osd检测到状态变化时，比如pg状态变化，并且距离上次汇报超过了最小回报时间后，就会向mon汇报，当到达最大汇报间隔时间后，无论是否有变化发生，osd也会向mon进行汇报。
 
