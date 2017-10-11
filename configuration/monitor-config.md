@@ -66,6 +66,8 @@ mon data = /var/lib/ceph/mon/$cluster-$id
 
 #### MON存储的同步
 
+[http://docs.ceph.com/docs/master/rados/configuration/mon-config-ref/\#monitor-store-synchronization](http://docs.ceph.com/docs/master/rados/configuration/mon-config-ref/#monitor-store-synchronization)
+
 可以将mon分为三个角色，同步的过程如下图:
 
 * Leader: 因为第一个拥有最新版本的cluster map，因此在quorum中被选举为Leader
@@ -73,4 +75,8 @@ mon data = /var/lib/ceph/mon/$cluster-$id
 * Requester: 刚加入的mon\(刚从fail中重启等原因\)
 
 如果同步过程中Provider收到map 的update请求，则会中断传输。
+
+
+
+
 
