@@ -72,7 +72,5 @@ mon data = /var/lib/ceph/mon/$cluster-$id
 * Provider: 拥有最新版cluster map的mon节点
 * Requester: 刚加入的mon\(刚从fail中重启等原因\)
 
-
-
-如果同步过程中Provider收到map 的update请求，
+如果同步过程中Provider收到map 的update请求，则会中断传输。
 
