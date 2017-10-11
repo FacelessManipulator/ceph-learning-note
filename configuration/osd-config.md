@@ -30,6 +30,7 @@ osd class dir = $libdir/rados-classes
 # osd mkfs options {fs-type} = 创建<fs-type>时的附加选项
 osd mkfs options xfs= -f -d agcount=24
 # osd mount options {fs-type} = 挂载<fs-type>时的附加选项
+osd mount options xfs = rw, noation, inode64, logbufs=8
 ```
 
 
