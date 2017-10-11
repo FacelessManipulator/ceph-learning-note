@@ -52,7 +52,7 @@ osd journal size = 523288000 # (default 0)
 
 #### Scrubbing
 
-
+为了保证对象的多份copies之间的完整性一致性，Ceph会以PG为单位scrubbing数据。对于每个PG，Ceph首先生成一份目录，根据目录来比较目录中每个object是否完整或者丢失。Light scrubbing\(日常的轻量级洗刷\)只会检查每个Object的size和attributes。Deep scrubbing\(每周的深度洗刷）会计算每个object的检验和来保证数据完整性。
 
 
 
