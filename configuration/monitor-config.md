@@ -10,7 +10,7 @@ mon提供的服务有:
 
 当cluster map的改变\(挂了一个osd\)被当前mon检测到时，mon就会把changes写入同一个Paxos实例中，然后由Paxos将Changes写入kv store来保证强一致性。
 
-![](http://docs.ceph.com/docs/master/_images/ditaa-ae8fc6ae5b4014f064a0bed424507a7a247cd113.png)
+
 
 #### Quorum
 
@@ -65,6 +65,14 @@ mon data = /var/lib/ceph/mon/$cluster-$id
 * mon osd full ratio: 当一个OSD的使用空间大于0.8时，就被认为太满了，为了保证数据不丢失，就会不再允许客户端的读写，直到加入新的osd使得集群压力变小后
 * mon osd backfillfull ratio: 当使用空间大于这个值时，认为too full to backfill
 * 如果一些osd已经快满了\(nearful\)，而另一些还有足够空间，说明Weight设置有问题
+
+#### MON存储的同步
+
+可以将mon分为三个角色，同步的过程如下图:
+
+* Leader: 因为第一个拥有最新版本的cluster map，因此在quorum中被选举为Leader
+* Provider: 拥有最新版cluster map的mon节点
+* Requester: 刚加入的mon\(刚从fail中重启等原因\)
 
 
 
