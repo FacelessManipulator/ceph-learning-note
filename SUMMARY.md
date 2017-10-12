@@ -12,6 +12,7 @@
 * [Monitor config](configuration/monitor-config.md)
 * [Monitor/OSD Interaction](configuration/monitorosd-interaction.md)
 * [osd config](configuration/osd-config.md)
+* [Pool/PG/CRUSH](configuration/poolpgcrush.md)
 
 ## common
 
@@ -35,6 +36,4 @@
   * [BlockDevice](chapter1/bluestore/blockdevice.md)
   * [bluestore\_types](chapter1/bluestore/bluestoretypes.md)
 * FileStore
-
-
 
