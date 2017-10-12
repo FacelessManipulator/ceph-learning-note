@@ -201,5 +201,33 @@ ceph osd pool set <pool-name> csum_type <algorithm>
 bluestore_csum_type = crc32c # none, crc32c, crc32c_16, crc32c_8, xxhash32, xxhash64
 ```
 
+##### inline compression
+
+bluestore支持在线压缩工具，如 snappy, zlib, lz4，Bluestore包含四种压缩判别模式:
+
+* none: 永不压缩
+* passive: 默认不压缩，除非op含有compressible选项
+* aggressive: 默认压缩，除非op含有incompressible选项
+* force: 强制压缩
+
+```
+# commandline
+ceph osd pool set <pool-name> compression_algorithm <algorithm>
+ceph osd pool set <pool-name> compression_mode <mode>
+ceph osd pool set <pool-name> compression_required_ratio <ratio>
+ceph osd pool set <pool-name> compression_min_blob_size <size>
+ceph osd pool set <pool-name> compression_max_blob_size <size>
+# global config in config file
+bluestore compression algorithm = snappy
+bluestore compression mode = none # 默认如果需要压缩，那么得通过命令行对某个pool进行指定
+bluestore compression required ratio = 0.875 # 对压缩后压缩率的要求，如果压缩收益太低，则无论模式如何，都不会压缩
+bluestore compression min blob size = 0 #比这个size小的不需要压缩
+bluestore compression min blob size hdd = 128k 
+bluestore compression min blob size ssd = 8k
+bluestore compression max blob size = 0 # 比这个size大的需要分割后再压缩
+bluestore compression max blob size hdd = 512k
+bluestore compression max blob size ssd = 64k
+```
+
 
 
