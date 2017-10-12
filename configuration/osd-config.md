@@ -161,7 +161,45 @@ osd backfill scan max = 512 #每次backfill扫描时最多/最少object数量
 osd backfill retry interval = 10.0 # 重试backfill请求的时间间隔
 ```
 
-#### 
+#### BlueStore
+
+每个osd的BlueStore通常管理一至三个物理存储设备，在只有一个存储设备的情况下，这个设备一般被分为两个分区:
+
+* 一个较小的XFS文件系统的分区，用来存储OSD相关的metadata的信息，比如keyring, cluster id, id等
+* 一个较大的raw的分区，由BlueStore直接管理，用来存储data，通常在$data目录有个block的符号链接指向设备
+
+如果有多个存储设备，则可以分出一些存储服务:
+
+* 用来存WAL\(write-ahead-log\)信息和journal的设备，在$data中的符号链接为block.wal
+* 用来存KV-db数据的存储设备，BlueStore会在DB device上存放尽量多的数据来提高效率
+
+##### Cache
+
+Bluestore使用Cache缓存数据以提高效率，Cache会缓存三种数据，KV metadata / BlueStore metadata / BlueStore data
+
+```
+# 不同设备的cache的size大小
+bluestore_cache_size = 0
+bluestore_cache_size_hdd = 1*1024*1024*1024 #(1GB)
+bluestore_cache_size_ssd = 3*1024*1024*1024 #(3GB)
+# 不同类型数据占cache的比例
+bluestore_cache_meta_ratio = 0.01
+bluestore_cache_kv_ratio = 0.99
+# bluestore data的ratio使用剩余部分，不需要特别设置
+```
+
+##### Checksums
+
+在Deep scrub的时候为了比较Object的data和metadata，需要CheckSum。metadata的checksum由RocksDB负责，使用src32c算法计算，data的checksum由Bluestore直接负责，可以选择使用crc32c, xxhash32 或者xxhash64算法。
+
+由于为了存储大量小object的checksum需要消耗较大空间，所以在client指定的情况下\(如rbd\)，bluestore会checksum一个大的block。checksum算法可以由一下方式指定:
+
+```
+# command line
+ceph osd pool set <pool-name> csum_type <algorithm>
+# global setting in config file
+bluestore_csum_type = crc32c # none, crc32c, crc32c_16, crc32c_8, xxhash32, xxhash64
+```
 
 
 
