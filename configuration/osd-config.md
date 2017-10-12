@@ -229,5 +229,25 @@ bluestore compression max blob size hdd = 512k
 bluestore compression max blob size ssd = 64k
 ```
 
+##### SPDK 使用
 
+spdk是inte开发的用来支持NVME标准的SSD设备读写的工具箱，如果想要在bluestore存储中使用NVMe设备，需要设置"spdk:"的前缀:
+
+```
+# get the serrial number with following command
+$ lspci -vvv -d 8086:0953 | grep "Device Serial Number"
+# then set in config file
+bluestore block path = spdk:...
+```
+
+如果想把WAL和DB也分别部署在不同的NVMe设备上，则需要分别指定path和size:
+
+```
+bluestore_block_db_path = ""
+bluestore_block_db_size = 0
+bluestore_block_wal_path = ""
+bluestore_block_wal_size = 0
+```
+
+否则ceph默认会将符号链接指向kernel based DB/WAL IO.
 
