@@ -78,6 +78,8 @@ osd deep scrub stride = 524288 # deep scrub时读的字节数
 默认情况下, osd使用两个线程来处理ops，ops在queue中排队等待处理,通常每个线程有15s超时时间和30s投诉时间
 
 ```
+osd op threads = 2 # osd op处理线程数
+osd disk threads = 1 # 处理后台disk IO密集型op的线程，例如scrbbing 和 snap trimming
 osd op thread timeout = 15 # 我目前并不清楚这是op等待超时时间还是线程执行op超时时间
 osd op complaint time = 30 # 我目前不并清楚complaint time有什么用
 ```
@@ -103,7 +105,6 @@ osd op complaint time = 30 # 我目前不并清楚complaint time有什么用
 * mclock\_opclass的改进版，mclock\_client，除了根据请求类别区分队列，同时也会考虑不同用户。所以保证不同类型request优先级时也保证了不同用户之间的优先级
 
 ```
-osd op threads = 2 # osd op处理线程数
 osd op queue = prio # osd op 所使用的queue的类型，有prio, wpq, mclokc_opclass, mclock_client
 osd recovery op priority = 3
 osd client op priority = 63
