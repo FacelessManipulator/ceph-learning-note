@@ -1,0 +1,555 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>bluestore_types · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="blockdevice.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Introduction</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../architecture.html">
+            
+                <a href="../../architecture.html">
+            
+                    
+                    Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Configuration</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../configuration/network-configuration.html">
+            
+                <a href="../../configuration/network-configuration.html">
+            
+                    
+                    Network configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../configuration/auth-configuration.html">
+            
+                <a href="../../configuration/auth-configuration.html">
+            
+                    
+                    Auth configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../../configuration/monitor-config.html">
+            
+                <a href="../../configuration/monitor-config.html">
+            
+                    
+                    Monitor config
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../../configuration/monitorosd-interaction.html">
+            
+                <a href="../../configuration/monitorosd-interaction.html">
+            
+                    
+                    Monitor/OSD Interaction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../../configuration/osd-config.html">
+            
+                <a href="../../configuration/osd-config.html">
+            
+                    
+                    osd config
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">common</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../common/buffer.html">
+            
+                <a href="../../common/buffer.html">
+            
+                    
+                    Buffer
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../common/buffer/ptr.html">
+            
+                <a href="../../common/buffer/ptr.html">
+            
+                    
+                    ptr
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../../common/cephcontext.html">
+            
+                <a href="../../common/cephcontext.html">
+            
+                    
+                    Context
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../../common/cephcontext/cephcontext.html">
+            
+                <a href="../../common/cephcontext/cephcontext.html">
+            
+                    
+                    CephContext
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Experience</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../../experience/first-modified.html">
+            
+                <a href="../../experience/first-modified.html">
+            
+                    
+                    First modified
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Storage</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../workflowjian-yao-fen-xi.html">
+            
+                <a href="../workflowjian-yao-fen-xi.html">
+            
+                    
+                    workflow简要分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../objectstorejie-kou.html">
+            
+                <a href="../objectstorejie-kou.html">
+            
+                    
+                    ObjectStore
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../bluestore.html">
+            
+                <a href="../bluestore.html">
+            
+                    
+                    BlueStore
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.3.1" data-path="aio.html">
+            
+                <a href="aio.html">
+            
+                    
+                    aio
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3.2" data-path="allocator.html">
+            
+                <a href="allocator.html">
+            
+                    
+                    Allocator
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.3.2.1" data-path="allocator/stupidallocator.html">
+            
+                <a href="allocator/stupidallocator.html">
+            
+                    
+                    StupidAllocator
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3.3" data-path="blockdevice.html">
+            
+                <a href="blockdevice.html">
+            
+                    
+                    BlockDevice
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.3.4" data-path="bluestoretypes.html">
+            
+                <a href="bluestoretypes.html">
+            
+                    
+                    bluestore_types
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" >
+            
+                <span>
+            
+                    
+                    FileStore
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >bluestore_types</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="osbluestorebluestoretypes">OS/BlueStore/bluestore_types</h2>
+<p>bluestore_types&#x4E2D;&#x5B9A;&#x4E49;&#x4E86;&#x5927;&#x90E8;&#x5206;bluestore&#x7684;&#x901A;&#x7528;&#x7C7B;&#x4EE5;&#x53CA;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x3002;</p>
+<pre><code>struct bluestore_bdev_label_t {
+  uuid_d osd_uuid;     ///&lt; osd uuid
+  uint64_t size;       ///&lt; device size
+  utime_t btime;       ///&lt; birth time
+  string description;  ///&lt; device description
+
+  void encode(bufferlist&amp; bl) const;
+  void decode(bufferlist::iterator&amp; p);
+  void dump(Formatter *f) const;
+  static void generate_test_instances(list&lt;bluestore_bdev_label_t*&gt;&amp; o);
+};
+</code></pre><ul>
+<li>struct bluestore_bdev_label_t &#x4F7F;&#x7528;&#x6765;&#x5B58;&#x50A8;&#x5757;&#x8BBE;&#x5907;&#x7684;&#x57FA;&#x672C;&#x4FE1;&#x606F;</li>
+<li>uuid : osd&#x7684;uuid&#x4FE1;&#x606F;&#xFF0C;size: &#x8BBE;&#x5907;&#x5927;&#x5C0F;&#xFF0C;btime: osd&#x521B;&#x5EFA;&#x65F6;&#x95F4;&#xFF0C;description: &#x8BBE;&#x5907;&#x63CF;&#x8FF0;</li>
+<li>encode</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="blockdevice.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: BlockDevice">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"bluestore_types","level":"5.3.4","depth":2,"next":{"title":"FileStore","level":"5.4","depth":1,"ref":"","articles":[]},"previous":{"title":"BlockDevice","level":"5.3.3","depth":2,"path":"chapter1/bluestore/blockdevice.md","ref":"chapter1/bluestore/blockdevice.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter1/bluestore/bluestoretypes.md","mtime":"2017-10-09T09:02:02.530Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-12T07:35:42.550Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

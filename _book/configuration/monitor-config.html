@@ -1,0 +1,607 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Monitor config · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="monitorosd-interaction.html" />
+    
+    
+    <link rel="prev" href="auth-configuration.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Introduction</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../architecture.html">
+            
+                <a href="../architecture.html">
+            
+                    
+                    Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Configuration</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="network-configuration.html">
+            
+                <a href="network-configuration.html">
+            
+                    
+                    Network configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="auth-configuration.html">
+            
+                <a href="auth-configuration.html">
+            
+                    
+                    Auth configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.3" data-path="monitor-config.html">
+            
+                <a href="monitor-config.html">
+            
+                    
+                    Monitor config
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="monitorosd-interaction.html">
+            
+                <a href="monitorosd-interaction.html">
+            
+                    
+                    Monitor/OSD Interaction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="osd-config.html">
+            
+                <a href="osd-config.html">
+            
+                    
+                    osd config
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">common</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../common/buffer.html">
+            
+                <a href="../common/buffer.html">
+            
+                    
+                    Buffer
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../common/buffer/ptr.html">
+            
+                <a href="../common/buffer/ptr.html">
+            
+                    
+                    ptr
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../common/cephcontext.html">
+            
+                <a href="../common/cephcontext.html">
+            
+                    
+                    Context
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../common/cephcontext/cephcontext.html">
+            
+                <a href="../common/cephcontext/cephcontext.html">
+            
+                    
+                    CephContext
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Experience</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../experience/first-modified.html">
+            
+                <a href="../experience/first-modified.html">
+            
+                    
+                    First modified
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Storage</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../chapter1/workflowjian-yao-fen-xi.html">
+            
+                <a href="../chapter1/workflowjian-yao-fen-xi.html">
+            
+                    
+                    workflow简要分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../chapter1/objectstorejie-kou.html">
+            
+                <a href="../chapter1/objectstorejie-kou.html">
+            
+                    
+                    ObjectStore
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../chapter1/bluestore.html">
+            
+                <a href="../chapter1/bluestore.html">
+            
+                    
+                    BlueStore
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.3.1" data-path="../chapter1/bluestore/aio.html">
+            
+                <a href="../chapter1/bluestore/aio.html">
+            
+                    
+                    aio
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3.2" data-path="../chapter1/bluestore/allocator.html">
+            
+                <a href="../chapter1/bluestore/allocator.html">
+            
+                    
+                    Allocator
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.3.2.1" data-path="../chapter1/bluestore/allocator/stupidallocator.html">
+            
+                <a href="../chapter1/bluestore/allocator/stupidallocator.html">
+            
+                    
+                    StupidAllocator
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3.3" data-path="../chapter1/bluestore/blockdevice.html">
+            
+                <a href="../chapter1/bluestore/blockdevice.html">
+            
+                    
+                    BlockDevice
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3.4" data-path="../chapter1/bluestore/bluestoretypes.html">
+            
+                <a href="../chapter1/bluestore/bluestoretypes.html">
+            
+                    
+                    bluestore_types
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" >
+            
+                <span>
+            
+                    
+                    FileStore
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Monitor config</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="monitor">Monitor</h1>
+<p>MON&#x8282;&#x70B9;&#x5728;cluster&#x4E2D;&#x7684;&#x5B9A;&#x4F4D;&#x5728;&#x603B;&#x4F53;&#x67B6;&#x6784;&#x4E2D;&#x5DF2;&#x6709;&#x9610;&#x8FF0;&#xFF0C;&#x8FD9;&#x7AE0;&#x4E3B;&#x8981;&#x63CF;&#x8FF0;MON&#x5185;&#x90E8;&#x67B6;&#x6784;&#x548C;&#x76F8;&#x5173;&#x914D;&#x7F6E;&#x3002;</p>
+<p>mon&#x63D0;&#x4F9B;&#x7684;&#x670D;&#x52A1;&#x6709;:</p>
+<ul>
+<li>&#x7EF4;&#x6301;&#x4E00;&#x4EFD;cluster map &#x7684;&#x526F;&#x672C;&#xFF0C;&#x5E76;&#x8D1F;&#x8D23;&#x63D0;&#x4F9B;&#x6B64;&#x526F;&#x672C;&#x7ED9;client</li>
+<li>&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;</li>
+<li>&#x8BA4;&#x8BC1;</li>
+</ul>
+<p>&#x5F53;cluster map&#x7684;&#x6539;&#x53D8;(&#x6302;&#x4E86;&#x4E00;&#x4E2A;osd)&#x88AB;&#x5F53;&#x524D;mon&#x68C0;&#x6D4B;&#x5230;&#x65F6;&#xFF0C;mon&#x5C31;&#x4F1A;&#x628A;changes&#x5199;&#x5165;&#x540C;&#x4E00;&#x4E2A;Paxos&#x5B9E;&#x4F8B;&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x7531;Paxos&#x5C06;Changes&#x5199;&#x5165;kv store&#x6765;&#x4FDD;&#x8BC1;&#x5F3A;&#x4E00;&#x81F4;&#x6027;&#x3002;</p>
+<p><img src="../assets/import.png" alt=""></p>
+<h4 id="quorum">Quorum</h4>
+<h4 id="cluster-map">Cluster Map</h4>
+<h4 id="consistency">Consistency</h4>
+<ul>
+<li>mon&#x901A;&#x8FC7;monitor map(monmap)&#x6765;&#x53D1;&#x73B0;&#x5176;&#x4ED6;monitor node&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x4E3A;&#x4E86;&#x65F6;&#x65F6;&#x901A;&#x8FC7;paxos&#x52A8;&#x6001;&#x66F4;&#x65B0;monmap&#xFF0C;&#x800C;&#x5176;&#x4ED6;daemon&#x5219;&#x901A;&#x8FC7;config file&#x6765;&#x5BFB;&#x627E;Mon&#x8282;&#x70B9;</li>
+<li>monmap&#x7684;&#x4FEE;&#x6539;&#x5FC5;&#x987B;&#x901A;&#x8FC7;&#x5206;&#x5E03;&#x5F0F;&#x7B97;&#x6CD5;Paxos&#x4EE5;&#x786E;&#x4FDD;quorum&#x4E2D;&#x4FDD;&#x6709;&#x76F8;&#x540C;&#x7248;&#x672C;&#x7684;monmap</li>
+</ul>
+<h4 id="&#x521D;&#x59CB;&#x914D;&#x7F6E;">&#x521D;&#x59CB;&#x914D;&#x7F6E;</h4>
+<pre><code>&#xFF03;&#x3000;&#x7B49;&#x6548;&#x4E8E;&#x5206;&#x522B;&#x914D;&#x7F6E;&#x4E09;&#x4E2A;mon&#x7684;&#x7F51;&#x7EDC;&#x53C2;&#x6570;
+[mon]
+        mon host = hostname1,hostname2,hostname3
+        mon addr = 10.0.0.10:6789,10.0.0.11:6789,10.0.0.12:6789
+        mon initial member = a,b,c
+
+[mon.a]
+        host = hostname1
+        mon addr = 10.0.0.10:6789
+</code></pre><ul>
+<li>mon initial member: &#x6307;&#x5B9A;&#x521D;&#x59CB;&#x5316;quorum&#x7684;mon&#xFF0C;&#x7528;&#x6765;&#x5FEB;&#x901F;&#x5EFA;&#x7ACB;&#x96C6;&#x7FA4;</li>
+<li>mon host&#x548C;mon addr&#x7528;&#x6765;&#x6307;&#x5B9A;monitor&#x8282;&#x70B9;&#x4E3B;&#x673A;&#x540D;&#x548C;&#x5730;&#x5740;</li>
+</ul>
+<h4 id="data">data</h4>
+<p>mon&#x7684;data&#x9700;&#x8981;&#x901A;&#x8FC7;leveldb&#x5B58;&#x50A8;&#x6570;&#x636E;&#x5230;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x7531;&#x4E8E;mon&#x9700;&#x8981;&#x9891;&#x7E41;&#x7684;&#x628A;&#x5185;&#x5B58;&#x4E2D;&#x7684;monmap&#x5237;&#x5165;&#x786C;&#x76D8;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x5F71;&#x54CD;osd&#x7684;&#x6548;&#x7387;&#xFF0C;&#x56E0;&#x6B64;&#x6700;&#x597D;&#x4E0D;&#x8981;&#x5C06;mon&#x90E8;&#x7F72;&#x5230;osd&#x8282;&#x70B9;&#x4E0A;&#x3002;</p>
+<p>0.58&#x4EE5;&#x524D;&#x65E7;&#x7248;&#x672C;&#x7684;mon&#x5C06;&#x76F4;&#x63A5;&#x901A;&#x8FC7;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x5B58;&#x50A8;data&#xFF0C;&#x65B0;&#x7248;&#x672C;&#x4E3A;&#x4E86;&#x4FDD;&#x8BC1;data ACID(&#x539F;&#x5B50;&#x6027;/&#x4E00;&#x81F4;&#x6027;/&#x9694;&#x79BB;&#x6027;/&#x6301;&#x7EED;&#x6027;)&#xFF0C;&#x901A;&#x8FC7;kv store(leveldb)&#x6765;&#x5B58;&#x50A8;data&#x3002;</p>
+<ul>
+<li>mon&#x914D;&#x7F6E;&#x4E2D;&#x6709;&#x4E00;&#x5927;&#x5806;mon warn on &lt;condition&gt;&#x5F00;&#x5934;&#x7684;&#xFF0C;&#x662F;&#x7528;&#x6765;&#x5728;&#x6761;&#x4EF6;&#x7B26;&#x5408;&#x65F6;&#x62A5;&#x51FA;HEALTH_WARN&#x7684;&#xFF0C;default&#x90FD;&#x662F;True&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x66F4;&#x6539;</li>
+<li>mon health to clog&#x3000;&#x7CFB;&#x5217;setting&#x662F;&#x5B9A;&#x65F6;&#x5411;cluter&#x7684;Log&#x4E2D;&#x5199;&#x5165;cluster&#x7684;&#x5065;&#x5EB7;&#x72B6;&#x6001;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x5B9A;&#x5236;&#x5316;&#x76D1;&#x63A7;&#x9700;&#x6C42;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4FEE;&#x6539;mon health to clog interval&#x6765;&#x81EA;&#x5B9A;&#x4E49;&#x76D1;&#x63A7;&#x95F4;&#x9694;</li>
+<li>mon data: &#x6307;&#x5B9A;mon data&#x6587;&#x4EF6;&#x5B58;&#x653E;&#x4F4D;&#x7F6E;&#xFF0C;&#x4E00;&#x822C;&#x9664;&#x975E;&#x9ED8;&#x8BA4;&#x6587;&#x4EF6;&#x5939;&#x6709;&#x6743;&#x9650;&#x95EE;&#x9898;&#xFF0C;&#x5426;&#x5219;&#x4E0D;&#x9700;&#x8981;&#x4FEE;&#x6539;</li>
+</ul>
+<pre><code>mon data = /var/lib/ceph/mon/$cluster-$id
+</code></pre><h3 id="&#x5B58;&#x50A8;&#x5BB9;&#x91CF;">&#x5B58;&#x50A8;&#x5BB9;&#x91CF;</h3>
+<pre><code>[global]
+
+        mon osd full ratio = .80
+        mon osd backfillfull ratio = .75
+        mon osd nearfull ratio = .70
+</code></pre><ul>
+<li>mon osd full ratio: &#x5F53;&#x4E00;&#x4E2A;OSD&#x7684;&#x4F7F;&#x7528;&#x7A7A;&#x95F4;&#x5927;&#x4E8E;0.8&#x65F6;&#xFF0C;&#x5C31;&#x88AB;&#x8BA4;&#x4E3A;&#x592A;&#x6EE1;&#x4E86;&#xFF0C;&#x4E3A;&#x4E86;&#x4FDD;&#x8BC1;&#x6570;&#x636E;&#x4E0D;&#x4E22;&#x5931;&#xFF0C;&#x5C31;&#x4F1A;&#x4E0D;&#x518D;&#x5141;&#x8BB8;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x8BFB;&#x5199;&#xFF0C;&#x76F4;&#x5230;&#x52A0;&#x5165;&#x65B0;&#x7684;osd&#x4F7F;&#x5F97;&#x96C6;&#x7FA4;&#x538B;&#x529B;&#x53D8;&#x5C0F;&#x540E;</li>
+<li>mon osd backfillfull ratio: &#x5F53;&#x4F7F;&#x7528;&#x7A7A;&#x95F4;&#x5927;&#x4E8E;&#x8FD9;&#x4E2A;&#x503C;&#x65F6;&#xFF0C;&#x8BA4;&#x4E3A;too full to backfill</li>
+<li>&#x5982;&#x679C;&#x4E00;&#x4E9B;osd&#x5DF2;&#x7ECF;&#x5FEB;&#x6EE1;&#x4E86;(nearful)&#xFF0C;&#x800C;&#x53E6;&#x4E00;&#x4E9B;&#x8FD8;&#x6709;&#x8DB3;&#x591F;&#x7A7A;&#x95F4;&#xFF0C;&#x8BF4;&#x660E;Weight&#x8BBE;&#x7F6E;&#x6709;&#x95EE;&#x9898;</li>
+</ul>
+<h4 id="mon&#x5B58;&#x50A8;&#x7684;&#x540C;&#x6B65;">MON&#x5B58;&#x50A8;&#x7684;&#x540C;&#x6B65;</h4>
+<p><a href="http://docs.ceph.com/docs/master/rados/configuration/mon-config-ref/#monitor-store-synchronization" target="_blank">http://docs.ceph.com/docs/master/rados/configuration/mon-config-ref/#monitor-store-synchronization</a></p>
+<p>&#x53EF;&#x4EE5;&#x5C06;mon&#x5206;&#x4E3A;&#x4E09;&#x4E2A;&#x89D2;&#x8272;&#xFF0C;&#x540C;&#x6B65;&#x7684;&#x8FC7;&#x7A0B;&#x5982;&#x4E0B;&#x56FE;:</p>
+<ul>
+<li>Leader: &#x56E0;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x62E5;&#x6709;&#x6700;&#x65B0;&#x7248;&#x672C;&#x7684;cluster map&#xFF0C;&#x56E0;&#x6B64;&#x5728;quorum&#x4E2D;&#x88AB;&#x9009;&#x4E3E;&#x4E3A;Leader</li>
+<li>Provider: &#x62E5;&#x6709;&#x6700;&#x65B0;&#x7248;cluster map&#x7684;mon&#x8282;&#x70B9;</li>
+<li>Requester: &#x521A;&#x52A0;&#x5165;&#x7684;mon(&#x521A;&#x4ECE;fail&#x4E2D;&#x91CD;&#x542F;&#x7B49;&#x539F;&#x56E0;)</li>
+</ul>
+<p>&#x5982;&#x679C;&#x540C;&#x6B65;&#x8FC7;&#x7A0B;&#x4E2D;Provider&#x6536;&#x5230;map &#x7684;update&#x8BF7;&#x6C42;&#xFF0C;&#x5219;&#x4F1A;&#x4E2D;&#x65AD;&#x4F20;&#x8F93;&#x3002;<img src="../assets/import2.png" alt=""></p>
+<h4 id="&#x5176;&#x4ED6;&#x914D;&#x7F6E;">&#x5176;&#x4ED6;&#x914D;&#x7F6E;</h4>
+<p>&#x53E6;&#x5916;&#x7684;&#x90FD;&#x662F;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x7B49;&#x8BBE;&#x7F6E;&#xFF0C;&#x4E00;&#x822C;&#x9ED8;&#x8BA4;&#x503C;&#x5C31;&#x884C;</p>
+<pre><code># &#x96C6;&#x7FA4;&#x4E2D;&#x6700;&#x5927;osd&#x7684;&#x6570;&#x91CF;
+mon max osd = 10000
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="auth-configuration.html" class="navigation navigation-prev " aria-label="Previous page: Auth configuration">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="monitorosd-interaction.html" class="navigation navigation-next " aria-label="Next page: Monitor/OSD Interaction">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Monitor config","level":"2.3","depth":1,"next":{"title":"Monitor/OSD Interaction","level":"2.4","depth":1,"path":"configuration/monitorosd-interaction.md","ref":"configuration/monitorosd-interaction.md","articles":[]},"previous":{"title":"Auth configuration","level":"2.2","depth":1,"path":"configuration/auth-configuration.md","ref":"configuration/auth-configuration.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/monitor-config.md","mtime":"2017-10-11T03:48:20.284Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-12T07:35:42.550Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
