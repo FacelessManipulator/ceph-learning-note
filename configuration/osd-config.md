@@ -75,11 +75,19 @@ osd deep scrub stride = 524288 # deep scrub时读的字节数
 
 #### Oprations
 
-默认情况下, osd使用两个线程来处理ops，ops在queue中排队等待处理，每个op都带有priority属性，不同类型的有限队列会有不同的优先级处理方式:
+默认情况下, osd使用两个线程来处理ops，ops在queue中排队等待处理,通常每个线程有15s超时时间和30s投诉时间
+
+```
+osd op thread timeout = 15 # 目前并不清楚这是op等待超时时间还是线程执行op超时时间
+osd op complaint time = 30
+```
+
+每个op都带有priority属性，不同类型的有限队列会有不同的优先级处理方式:
 
 * 原始的Original PrioritizedQueue\(prio\) 使用令牌桶系统，当高优先级队列中有足够的token时，会先从高优先级队列出队op，如果高优先级队列token不足，就将低优先级队列中的op排入高优先级队列中。算法见[https://baike.baidu.com/item/%E4%BB%A4%E7%89%8C%E6%A1%B6%E7%AE%97%E6%B3%95](https://baike.baidu.com/item/令牌桶算法)
 * WeightedPriorityQueue\(wpq\) 为每个队列赋予weight，根据Weight从所有优先级的队列中出队op，以防止某个低优先级op starving，在OSDs之间负载不均时WPQ很有帮助
 * 最新的基于mClock的队列\(mclock\_opclass\)，把request归入5种类型:
+
   * client op: 用户发起的op
   * osd subop: 主OSD发起的op
   * snap trim: 裁剪相关op
@@ -87,14 +95,21 @@ osd deep scrub stride = 524288 # deep scrub时读的字节数
   * pg scrub: scrub相关op
 
   每个op 队列都有三种属性:
+
   * reservation: 分配的最小IOPS\(io per second\)，用来保证无论集群负载多大，该队列也不会starving
   * limitation: 分配的最大IOPS，用来保证单一队列不会用尽集群的IO
   * weight: 多余资源分配时的优先级
+
 * mclock\_opclass的改进版，mclock\_client，除了根据请求类别区分队列，同时也会考虑不同用户。所以保证不同类型request优先级时也保证了不同用户之间的优先级
 
 ```
 osd op threads = 2 # osd op处理线程数
 osd op queue = prio # osd op 所使用的queue的类型，有prio, wpq, mclokc_opclass, mclock_client
+osd recovery op priority = 3
+osd client op priority = 63
+osd scrub priority = 5
+osd snap trim priority = 5
+
 ```
 
 默认情况下，osd会从普通队列中将优先操作发到严格队列，当cut off为low的时候，所有重复的op也会被发送过去，当cut off为high的时候，只会把重复的ack和更高级的包发送过去。当OSD因为重复的包负载过大时，可以将cut off设置为high
