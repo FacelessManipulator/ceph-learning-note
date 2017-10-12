@@ -161,7 +161,7 @@ osd backfill scan max = 512 #每次backfill扫描时最多/最少object数量
 osd backfill retry interval = 10.0 # 重试backfill请求的时间间隔
 ```
 
-#### BlueStore
+### BlueStore
 
 每个osd的BlueStore通常管理一至三个物理存储设备，在只有一个存储设备的情况下，这个设备一般被分为两个分区:
 
