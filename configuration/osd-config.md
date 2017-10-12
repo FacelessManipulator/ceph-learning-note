@@ -114,7 +114,7 @@ osd snap trim priority = 5
 
 #### MClock配置
 
-有一些配置可以影响到mclock queue的运行，如果osd queue使用了mclock\_\*，则要特别注意有i以下因素:
+有一些配置可以影响到mclock queue的运行，如果osd queue使用了mclock\_\*，则要特别注意以下因素:
 
 * 发送给OSD的请求是根据PG id分片的，每个分片都有自己的mclock queue，这些队列并不会交互或者共享信息，较少的队列能够增加mclock算法的影响力，但是会有其他微妙的影响
 
@@ -122,6 +122,26 @@ osd snap trim priority = 5
 osd_op_num_shards = 0
 osd_op_num_shards_hdd = 5
 and osd_op_num_shards_ssd = 8
+```
+
+* 请求是从多个queue进入到operation sequencer\(操作序列器，执行阶段使用\)中的，mclock决定自己队列中的那个操作进入序列器，对于seq中op的数量就需要权衡，一方面seq中充足的op可以让线程不需要IO等待\(异步\)就可以执行下个op，但是过多的op进入seq也会消弱mclock的影响
+
+```
+bluestore_throttle_deferred_bytes = 134217728
+bluestore_throttle_cost_per_io = 0
+bluestore_throttle_cost_per_io_hdd = 670000
+bluestore_throttle_cost_per_io_ssd = 4000
+```
+
+* 还有其他因素:
+
+```
+osd push per object cost = 1000 # push op的cost
+osd recovery max chunk = 8Mib # recovery op最大操作chunk
+osd op queue mclock client op res = 1000.0
+osd op queue mclock client op wgt = 500.0
+osd op queue mclock cilent op lim = 1000.0
+...#各种类型队列的res wgt 和 lim
 ```
 
 默认情况下，osd会从普通队列中将优先操作发到严格队列，当cut off为low的时候，所有重复的op也会被发送过去，当cut off为high的时候，只会把重复的ack和更高级的包发送过去。当OSD因为重复的包负载过大时，可以将cut off设置为high
