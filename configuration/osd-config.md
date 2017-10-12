@@ -251,3 +251,26 @@ bluestore_block_wal_size = 0
 
 否则ceph默认会将符号链接指向kernel based DB/WAL IO.
 
+#### Filestore config
+
+在目前使用的稳定版本\(10.x\)，ceph默认使用filestore作为ObjectStore。FileStore基于系统原生的文件系统
+
+##### XATTRs
+
+关于XATTR的介绍可以参考博客: [http://blog.csdn.net/ganggexiongqi/article/details/7661024](http://blog.csdn.net/ganggexiongqi/article/details/7661024)
+
+XATTRs在文件系统中通常用来存储文件的扩展信息，比如访问控制等，Ceph利用文件系统的XATTR来存储Ceph所要使用的XATTR
+
+```
+filestore max inline xattr size = 0
+filestore max inline xattr size xfs = 65536
+filestore max inline xattr size btrfs = 2048
+filestore max inline xattr size other = 512
+filestore max inline xattrs = 0
+filestore max inline xattrs xfs = 10
+filestore max inline xattrs btrfs = 10
+filestore max inline xattrs other = 2
+```
+
+
+
