@@ -288,7 +288,8 @@ filestore会尝试将一个包含较多文件的文件夹分割为多个子文�
 ```
 filestore merge threshold = 10 # 将子文件夹合并到父的最小文件数量
 filestore split multiple = 2
+filestore split arnd fator = 20
 ```
 
-filestore merge threshold
+
 
