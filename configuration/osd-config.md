@@ -78,8 +78,8 @@ osd deep scrub stride = 524288 # deep scrub时读的字节数
 默认情况下, osd使用两个线程来处理ops，ops在queue中排队等待处理,通常每个线程有15s超时时间和30s投诉时间
 
 ```
-osd op thread timeout = 15 # 目前并不清楚这是op等待超时时间还是线程执行op超时时间
-osd op complaint time = 30 # 目前不并清楚complaint time有什么用
+osd op thread timeout = 15 # 我目前并不清楚这是op等待超时时间还是线程执行op超时时间
+osd op complaint time = 30 # 我目前不并清楚complaint time有什么用
 ```
 
 每个op都带有priority属性，不同类型的有限队列会有不同的优先级处理方式:
