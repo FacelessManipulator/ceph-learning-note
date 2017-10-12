@@ -291,5 +291,21 @@ filestore split multiple = 2
 filestore split arnd fator = 20
 ```
 
+#### Journal
+
+journal的使用有两个优势：
+
+* 速度：Ceph OSD能够快速提交小的写操作，ceph将小而随机的IO顺序写入journal，在合并写请求后再写入设备。
+* 一致性: 通过日志保证操作的原子性，比如update操作和定期sync到filesystem中，支持回滚
+
+```
+journal dio = true # 允许对journal的直接IO，需要 journal block align = true
+journal aio = true # 使用libaio来异步写入journal
+journal block align = true # 写操作时块对齐
+journal max write bytes = 10<<20 # journal写的最大数据量
+journal max write entries = 100 # journal每次写的最多entries数
+journal zero on create = false # mkfs将把journal重写为0
+```
+
 
 
