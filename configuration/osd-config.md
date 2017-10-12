@@ -79,7 +79,7 @@ osd deep scrub stride = 524288 # deep scrub时读的字节数
 
 ```
 osd op thread timeout = 15 # 目前并不清楚这是op等待超时时间还是线程执行op超时时间
-osd op complaint time = 30
+osd op complaint time = 30 # 目前不并清楚complaint time有什么用
 ```
 
 每个op都带有priority属性，不同类型的有限队列会有不同的优先级处理方式:
@@ -109,7 +109,6 @@ osd recovery op priority = 3
 osd client op priority = 63
 osd scrub priority = 5
 osd snap trim priority = 5
-
 ```
 
 默认情况下，osd会从普通队列中将优先操作发到严格队列，当cut off为low的时候，所有重复的op也会被发送过去，当cut off为high的时候，只会把重复的ack和更高级的包发送过去。当OSD因为重复的包负载过大时，可以将cut off设置为high
