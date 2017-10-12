@@ -262,15 +262,35 @@ bluestore_block_wal_size = 0
 XATTRs在文件系统中通常用来存储文件的扩展信息，比如访问控制等，Ceph利用文件系统的XATTR来存储Ceph所要使用的XATTR
 
 ```
-filestore max inline xattr size = 0
-filestore max inline xattr size xfs = 65536
+filestore max inline xattr size = 0 # 每个object可存储的最大xattr，应该不超过文件系统支持的最大size
+filestore max inline xattr size xfs = 65536 
 filestore max inline xattr size btrfs = 2048
-filestore max inline xattr size other = 512
-filestore max inline xattrs = 0
+filestore max inline xattr size other = 512 # 分别指定不同文件系统的最大object xattr size
+filestore max inline xattrs = 0 # 每个object可存储的最多xattr数量
 filestore max inline xattrs xfs = 10
 filestore max inline xattrs btrfs = 10
 filestore max inline xattrs other = 2
 ```
+
+##### Synchronization
+
+filestore会周期性地把journal中记录的项同步到硬盘中，更高的同步频率可以减少每次同步消耗的时间，并且减少journal中需要记录的项。更低频率的sync可以合并小的写操作，让sync更有效
+
+```
+filestore max sync interval = 5 #用来控制sync间隔
+filestore min sync interval = 0.01
+```
+
+##### 杂项
+
+filestore会尝试将一个包含较多文件的文件夹分割为多个子文件夹, \(filestore\_split\_multiple \* abs\(filestore\_merge\_threshold\) + \(rand\(\) % filestore\_split\_rand\_factor\)\) \* 16是将文件夹分割为多个子文件夹的上限
+
+```
+filestore merge threshold = 10 # 将子文件夹合并到父的最小文件数量
+filestore split multiple = 2
+```
+
+filestore merge threshold
 
 
 
