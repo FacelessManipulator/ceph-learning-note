@@ -283,7 +283,7 @@ filestore min sync interval = 0.01
 
 ##### 杂项
 
-filestore会尝试将一个包含较多文件的文件夹分割为多个子文件夹, \(filestore\_split\_multiple \* abs\(filestore\_merge\_threshold\) + \(rand\(\) % filestore\_split\_rand\_factor\)\) \* 16是将文件夹分割为多个子文件夹的上限
+filestore会尝试将一个包含较多文件的文件夹分割为多个子文件夹, \(filestore\_split\_multiple \* abs\(filestore\_merge\_threshold\) + \(rand\(\) % filestore\_split\_rand\_factor\)\) \* 16是将文件夹分割为多个子文件夹的阈值
 
 ```
 filestore merge threshold = 10 # 将子文件夹合并到父的最小文件数量
@@ -291,6 +291,4 @@ filestore split multiple = 2
 ```
 
 filestore merge threshold
-
-
 
