@@ -150,5 +150,18 @@ osd op queue mclock cilent op lim = 1000.0
 osd op queue cut off = low
 ```
 
+#### Backfilling
+
+当向集群中添加或移除一个OSD时，SCRUSH算法就会通过移动PG来重平衡。重平衡的操作就是backfiling，他的相关设置有
+
+```
+osd max backfills = 1 # 一个osd上最多能执行的backfilling数量
+osd backfill scan min = 64
+osd backfill scan max = 512 #每次backfill扫描时最多/最少object数量
+osd backfill retry interval = 10.0 # 重试backfill请求的时间间隔
+```
+
+#### 
+
 
 
