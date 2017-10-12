@@ -112,6 +112,18 @@ osd scrub priority = 5
 osd snap trim priority = 5
 ```
 
+#### MClock配置
+
+有一些配置可以影响到mclock queue的运行，如果osd queue使用了mclock\_\*，则要特别注意有i以下因素:
+
+* 发送给OSD的请求是根据PG id分片的，每个分片都有自己的mclock queue，这些队列并不会交互或者共享信息，较少的队列能够增加mclock算法的影响力，但是会有其他微妙的影响
+
+```
+osd_op_num_shards = 0
+osd_op_num_shards_hdd = 5
+and osd_op_num_shards_ssd = 8
+```
+
 默认情况下，osd会从普通队列中将优先操作发到严格队列，当cut off为low的时候，所有重复的op也会被发送过去，当cut off为high的时候，只会把重复的ack和更高级的包发送过去。当OSD因为重复的包负载过大时，可以将cut off设置为high
 
 ```
