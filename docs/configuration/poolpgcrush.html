@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Context · GitBook</title>
+        <title>Pool/PG/CRUSH · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="cephcontext/cephcontext.html" />
+    <link rel="next" href="../operations/health.html" />
     
     
-    <link rel="prev" href="buffer/ptr.html" />
+    <link rel="prev" href="osd-config.html" />
     
 
     </head>
@@ -124,9 +124,9 @@
         
         
     
-        <li class="chapter " data-level="2.1" data-path="../configuration/network-configuration.html">
+        <li class="chapter " data-level="2.1" data-path="network-configuration.html">
             
-                <a href="../configuration/network-configuration.html">
+                <a href="network-configuration.html">
             
                     
                     Network configuration
@@ -137,9 +137,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2" data-path="../configuration/auth-configuration.html">
+        <li class="chapter " data-level="2.2" data-path="auth-configuration.html">
             
-                <a href="../configuration/auth-configuration.html">
+                <a href="auth-configuration.html">
             
                     
                     Auth configuration
@@ -150,9 +150,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3" data-path="../configuration/monitor-config.html">
+        <li class="chapter " data-level="2.3" data-path="monitor-config.html">
             
-                <a href="../configuration/monitor-config.html">
+                <a href="monitor-config.html">
             
                     
                     Monitor config
@@ -163,9 +163,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.4" data-path="../configuration/monitorosd-interaction.html">
+        <li class="chapter " data-level="2.4" data-path="monitorosd-interaction.html">
             
-                <a href="../configuration/monitorosd-interaction.html">
+                <a href="monitorosd-interaction.html">
             
                     
                     Monitor/OSD Interaction
@@ -176,9 +176,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.5" data-path="../configuration/osd-config.html">
+        <li class="chapter " data-level="2.5" data-path="osd-config.html">
             
-                <a href="../configuration/osd-config.html">
+                <a href="osd-config.html">
             
                     
                     osd config
@@ -189,9 +189,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.6" data-path="../configuration/poolpgcrush.html">
+        <li class="chapter active" data-level="2.6" data-path="poolpgcrush.html">
             
-                <a href="../configuration/poolpgcrush.html">
+                <a href="poolpgcrush.html">
             
                     
                     Pool/PG/CRUSH
@@ -248,9 +248,9 @@
         
         
     
-        <li class="chapter " data-level="4.1" data-path="buffer.html">
+        <li class="chapter " data-level="4.1" data-path="../common/buffer.html">
             
-                <a href="buffer.html">
+                <a href="../common/buffer.html">
             
                     
                     Buffer
@@ -262,9 +262,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="4.1.1" data-path="buffer/ptr.html">
+        <li class="chapter " data-level="4.1.1" data-path="../common/buffer/ptr.html">
             
-                <a href="buffer/ptr.html">
+                <a href="../common/buffer/ptr.html">
             
                     
                     ptr
@@ -280,9 +280,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="4.2" data-path="cephcontext.html">
+        <li class="chapter " data-level="4.2" data-path="../common/cephcontext.html">
             
-                <a href="cephcontext.html">
+                <a href="../common/cephcontext.html">
             
                     
                     Context
@@ -294,9 +294,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="4.2.1" data-path="cephcontext/cephcontext.html">
+        <li class="chapter " data-level="4.2.1" data-path="../common/cephcontext/cephcontext.html">
             
-                <a href="cephcontext/cephcontext.html">
+                <a href="../common/cephcontext/cephcontext.html">
             
                     
                     CephContext
@@ -498,7 +498,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Context</a>
+        <a href=".." >Pool/PG/CRUSH</a>
     </h1>
 </div>
 
@@ -513,7 +513,23 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="poolpgcrush">POOL/PG/CRUSH</h1>
+<p>&#x5FD8;&#x4E86;&#x4FDD;&#x5B58;&#x4E86;&#xFF01;&#xFF01;&#x7B80;&#x5355;&#x8FD8;&#x539F;&#x7248;&#x672C;:</p>
+<ul>
+<li>pg&#x6570;&#x91CF;&#x7684;&#x8BBE;&#x7F6E;&#x901A;&#x5E38;&#x5EFA;&#x8BAE;&#x6BCF;&#x4E2A;osd&#x4E0A;&#x5305;&#x542B;100&#x5DE6;&#x53F3;pg&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; 100*osd num/replicated num&#x7B97;&#x51FA;</li>
+</ul>
+<pre><code>osd pool default size = 3
+osd pool default min size = 2 # degraded&#x72B6;&#x6001;&#x4E0B;&#x5141;&#x8BB8;&#x7684;&#x6700;&#x5C0F;&#x526F;&#x672C;&#x6570;
+
+osd pool default pg num = 100 # &#x5047;&#x8BBE;&#x53EA;&#x6709;3&#x4E2A;osd&#xFF0C;(100*3)/3=100
+osd pool default pgp num = 100 # &#x4E0D;&#x77E5;&#x4F5C;&#x7528;&#xFF0C;&#x6682;&#x65F6;&#x503C;&#x540C;pg num
+</code></pre><ul>
+<li>weight&#x7684;&#x8BBE;&#x7F6E;: &#x4E3A;&#x4FDD;&#x8BC1;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#xFF0C;&#x9700;&#x8981;&#x4E3A;&#x65B0;&#x52A0;&#x5165;&#x7684;osd&#x8BBE;&#x7F6E;&#x5408;&#x9002;&#x7684;weight&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x662F;osd&#x5B58;&#x50A8;&#x8BBE;&#x5907;&#x7684;size(TB&#x4E3A;&#x5355;&#x4F4D;)</li>
+</ul>
+<pre><code>osd crush initial weight = ... # &#x4E0D;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x8BBE;&#x7F6E;
+# replicated pool &#x7684;&#x9ED8;&#x8BA4;ruleset&#xFF0C;&#x9009;&#x62E9;&#x6700;&#x5C0F;id&#x7684;ruleset,&#x4E00;&#x822C;&#x662F;ruleset 0
+osd pool default crush replicated ruleset = -1 (CEPH_DEFAULT_CRUSH_REPLCATED_RULESET)
+</code></pre>
                                 
                                 </section>
                             
@@ -540,12 +556,12 @@
 
             
                 
-                <a href="buffer/ptr.html" class="navigation navigation-prev " aria-label="Previous page: ptr">
+                <a href="osd-config.html" class="navigation navigation-prev " aria-label="Previous page: osd config">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="cephcontext/cephcontext.html" class="navigation navigation-next " aria-label="Next page: CephContext">
+                <a href="../operations/health.html" class="navigation navigation-next " aria-label="Next page: Health">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -556,7 +572,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Context","level":"4.2","depth":1,"next":{"title":"CephContext","level":"4.2.1","depth":2,"path":"common/cephcontext/cephcontext.md","ref":"common/cephcontext/cephcontext.md","articles":[]},"previous":{"title":"ptr","level":"4.1.1","depth":2,"path":"common/buffer/ptr.md","ref":"common/buffer/ptr.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"common/cephcontext.md","mtime":"2017-09-29T09:35:00.325Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-13T02:42:11.695Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Pool/PG/CRUSH","level":"2.6","depth":1,"next":{"title":"Health","level":"3.1","depth":1,"path":"operations/health.md","ref":"operations/health.md","articles":[{"title":"OSD health","level":"3.1.1","depth":2,"path":"operations/health/osd-health.md","ref":"operations/health/osd-health.md","articles":[]}]},"previous":{"title":"osd config","level":"2.5","depth":1,"path":"configuration/osd-config.md","ref":"configuration/osd-config.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"configuration/poolpgcrush.md","mtime":"2017-10-13T01:08:15.927Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-10-13T02:42:11.695Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
