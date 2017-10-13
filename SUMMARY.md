@@ -14,6 +14,10 @@
 * [osd config](configuration/osd-config.md)
 * [Pool/PG/CRUSH](configuration/poolpgcrush.md)
 
+## Operations
+
+* [Health](operations/health.md)
+
 ## common
 
 * [Buffer](common/buffer.md)
