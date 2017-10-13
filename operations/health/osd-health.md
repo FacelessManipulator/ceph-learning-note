@@ -135,5 +135,14 @@ ceph osd pool set <poolname> hit_set_count <number-of-hitsets>
 ceph osd pool set <poolname> hit_set_fpp <target-false-positive-rate>
 ```
 
+##### POOL\_FULL
+
+有的pool存储已达阈值，不再允许写入，可以通过提高阈值或删点东西解决:
+
+```
+ceph osd pool set-quota <poolname> max_objects <num-objects>
+ceph osd pool set-quota <poolname> max_bytes <num-bytes>
+```
+
 
 
