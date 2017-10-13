@@ -65,12 +65,21 @@ Crush map引用了一个不存在的osd，通过ceph osd crush rm osd.&lt;id&gt;
 
 ##### OSD\_OUT\_OF\_ORDER\_FULL / OSD\_FULL
 
-osd的使用空间到达阈值以至于不能继续某些操作，如果不是负载不均衡，则通过添加i新的存储节点或者扩大full的阈值
+osd的使用空间到达阈值以至于不能继续某些操作，如果不是负载不均衡，则通过添加i新的存储节点或者扩大full的阈值，通过ceph df查看目前空间使用情况
 
 ```
-ceph osd set-backfillfull-ratio <ratio>
-ceph osd set-nearfull-ratio <ratio>
-ceph osd set-full-ratio <ratio>
+$ ceph df
+    GLOBAL:
+        SIZE      AVAIL     RAW USED     %RAW USED 
+        30.2G     27.0G        3.20G         10.60 
+    POOLS:
+        NAME                  ID     USED      %USED     MAX AVAIL     OBJECTS 
+        cephfs_data_a         1          0         0         8.89G           0 
+        cephfs_metadata_a     2      2.19K         0         8.89G          21 
+        test                  3          0         0         8.89G           0 
+$ ceph osd set-backfillfull-ratio <ratio>
+$ ceph osd set-nearfull-ratio <ratio>
+$ ceph osd set-full-ratio <ratio>
 ```
 
 
