@@ -18,6 +18,7 @@
 
 * [Health](operations/health.md)
   * [OSD health](operations/health/osd-health.md)
+  * [Data health](operations/health/data-health.md)
 
 ## common
 
