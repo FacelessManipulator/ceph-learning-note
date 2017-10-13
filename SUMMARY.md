@@ -33,13 +33,13 @@
 
 ## Storage
 
-* [workflow简要分析](chapter1/workflowjian-yao-fen-xi.md)
-* [ObjectStore](chapter1/objectstorejie-kou.md)
-* [BlueStore](chapter1/bluestore.md)
-  * [aio](chapter1/bluestore/aio.md)
-  * [Allocator](chapter1/bluestore/allocator.md)
-    * [StupidAllocator](chapter1/bluestore/allocator/stupidallocator.md)
-  * [BlockDevice](chapter1/bluestore/blockdevice.md)
-  * [bluestore\_types](chapter1/bluestore/bluestoretypes.md)
-* FileStore
+* [workflow简要分析](storage/workflowjian-yao-fen-xi.md)
+* [ObjectStore](storage/objectstorejie-kou.md)
+* [BlueStore](storage/bluestore.md)
+  * [aio](storage/bluestore/aio.md)
+  * [Allocator](storage/bluestore/allocator.md)
+    * [StupidAllocator](storage/bluestore/allocator/stupidallocator.md)
+  * [BlockDevice](storage/bluestore/blockdevice.md)
+  * [bluestore\_types](storage/bluestore/bluestoretypes.md)
+* [FileStore](storage/filestore.md)
 
