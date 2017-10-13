@@ -63,7 +63,7 @@ Crush上一个子树挂了，比如{ OSD\_HOST\_DOWN, OSD\_ROOT\_DOWN }，通常
 
 Crush map引用了一个不存在的osd，通过ceph osd crush rm osd.&lt;id&gt;从cursh中移除osd可以解决
 
-##### OSD\_OUT\_OF\_ORDER\_FULL / OSD\_FULL
+##### OSD\_OUT\_OF\_ORDER\_FULL / OSD\_FULL / OSD\_BACKFILLFULL / OSD\_NEARFULL
 
 osd的使用空间到达阈值以至于不能继续某些操作，如果不是负载不均衡，则通过添加i新的存储节点或者扩大full的阈值，通过ceph df查看目前空间使用情况
 
@@ -80,6 +80,34 @@ $ ceph df
 $ ceph osd set-backfillfull-ratio <ratio>
 $ ceph osd set-nearfull-ratio <ratio>
 $ ceph osd set-full-ratio <ratio>
+```
+
+##### OSDMAP\_FLAGS
+
+cluster的flags，这是admin手动设置的:
+
+* full - cluster 满了，不再提供写入服务
+* pauserd, pausewr - 暂停写入或读出 \# 注意
+* noup - 禁止OSD启动
+* nodown - 忽视OSD failure的report，这样MON就不会把OSD mark为down
+* noin - 被mark out的OSD重启以后也不会被mark in
+* noout - 就算心跳检测超时了osd也不会被mark out
+* nobackfill, bireciver, norebalance - 关闭一些功能
+* noscrub, nodeep\_scurb - 同上
+* -notieragent - 同上
+
+```
+ceph osd set <flag>
+ceph osd unset <flag>
+# example
+ceph-client $ ./writeoj.py test hc HelloWorld!
+    Writing to Cluster ID: b4c2e1a3-bec4-4c87-bc7b-abb7a17e8581
+ceph-client $ ceph osd set full
+ceph-client $ ./writeobj.py test hc HelloWorld2!
+    #这儿write请求等了很久也没返回错误码，可能是timeout很长，unset以后成功写入
+ceph-client $ ceph osd unset full
+    #unset以后上一个请求立刻返回0成功
+
 ```
 
 
