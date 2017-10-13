@@ -17,6 +17,7 @@
 ## Operations
 
 * [Health](operations/health.md)
+  * [OSD health](operations/health/osd-health.md)
 
 ## common
 
