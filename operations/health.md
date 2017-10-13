@@ -36,13 +36,13 @@ $ ceph -s
               1 osds down
               Reduced data availability: 3 pgs inactive, 17 pgs peering
               Degraded data redundancy: 17 pgs unclean
-   
+
     services:
       mon: 3 daemons, quorum a,b,c
       mgr: x(active)
       mds: cephfs_a-1/1/1 up  {0=b=up:active}, 2 up:standby
       osd: 3 osds: 2 up, 3 in
-   
+
     data:
       pools:   3 pools, 24 pgs
       objects: 21 objects, 2.19K
@@ -58,4 +58,20 @@ $ ceph -s
 ##### OSD\_&lt;CRUSH TYPE&gt;\_DOWN
 
 Crush上一个子树挂了，比如{ OSD\_HOST\_DOWN, OSD\_ROOT\_DOWN }，通常是一个机柜断电或者网络出了问题。
+
+##### OSD\_ORPHAN
+
+Crush map引用了一个不存在的osd，通过ceph osd crush rm osd.&lt;id&gt;从cursh中移除osd可以解决
+
+##### OSD\_OUT\_OF\_ORDER\_FULL / OSD\_FULL
+
+osd的使用空间到达阈值以至于不能继续某些操作，如果不是负载不均衡，则通过添加i新的存储节点或者扩大full的阈值
+
+```
+ceph osd set-backfillfull-ratio <ratio>
+ceph osd set-nearfull-ratio <ratio>
+ceph osd set-full-ratio <ratio>
+```
+
+
 
